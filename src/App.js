@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import firebase from './firebase.js';
 import './styles/App.scss';
 import axios from 'axios';
-import Header from './components/Header.js';
+import Header from './components/Header';
+import Create from './components/CreateMeme';
+import DisplayMeme from './components/DisplayMeme';
 import Footer from './components/Footer';
 
 /* 
@@ -53,7 +55,7 @@ class App extends Component{
     
 
     const dbRef = firebase.database().ref();
-    console.log(`This is your firebase database:`, dbRef);
+    // console.log(`This is your firebase database:`, dbRef);
     
   }
 
@@ -69,14 +71,14 @@ class App extends Component{
       }
     }).then((apiResponse) => {
 
-      const apiResults = apiResponse.data.data;
-      console.log(apiResults);
+      // const apiResults = apiResponse.data.data;
+      // console.log(apiResults);
 
-      const results = apiResults[0].images.downsized_large;
+      // const results = apiResults[0].images.downsized_large;
 
-      this.setState({
-        images: results.url,
-      })
+      // this.setState({
+      //   images: results.url,
+      // })
     })
   }
 
@@ -91,22 +93,24 @@ class App extends Component{
         rating: 'g'
       }
     }).then((apiResponse) => {
-      console.log('trending', apiResponse);
+      // console.log('trending', apiResponse);
     })
   }
 
   render(){
     return (
       <Router>
-        {/* HEADER SECTION */}
+        
         <Header headerText="Meme in a Giffy" subheaderText="" />
         <img src={ this.state.images } alt=""/>
 
           {/* <Route exact path="/" component={ } />
           <Route path="" component ={ } /> */}
-
-        {/* FOOTER SECTION */}
+        <Create />
+        <DisplayMeme />
+        
         <Footer />
+
       </Router>
     );
   }
