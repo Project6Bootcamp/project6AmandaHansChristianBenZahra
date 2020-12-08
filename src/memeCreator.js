@@ -14,9 +14,12 @@ class MemeCreator extends Component{
 
         const dbRef = firebase.database().ref();
 
+        const time = document.getElementById('date').value = Date();
+
         const userTagsInput = this.tags.value;
-        const userMemeTags = userTagsInput.split(' ')
+        const userMemeTags = userTagsInput.split(/[\s,]+/)
         const userMeme = {
+            memeDate:time,
             memeTop:this.topText.value,
             memeBot:this.bottomText.value,
             memeTags:userMemeTags
@@ -40,6 +43,8 @@ class MemeCreator extends Component{
                 <form action="" onSubmit={this.userGeneratedMemes}>
 
                     {/* <img src={} alt={} /> */}
+
+                    <input id="date" name="date" className="hiddenDate"></input>
 
                     <div>
                         <label htmlFor="topText" class="srOnly">Top Text</label>
