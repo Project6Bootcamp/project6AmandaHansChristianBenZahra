@@ -1,32 +1,66 @@
 import { Component } from 'react';
+import firebase from './firebase.js';
 
-class memeCreator extends Component{
+class MemeCreator extends Component{
+    constructor(){
+        super();
+        this.state = {
+            userMemes:'',
+        }
+    }
+
+    userGeneratedMemes = (e) =>{
+        e.preventDefault();
+
+        const dbRef = firebase.database().ref();
+
+        const userTagsInput = this.tags.value;
+        const userMemeTags = userTagsInput.split(' ')
+        const userMeme = {
+            memeTop:this.topText.value,
+            memeBot:this.bottomText.value,
+            memeTags:userMemeTags
+        }
+
+        this.topText.value = ''
+        this.bottomText.value = ''
+        this.tags.value = ''
+
+        dbRef.push(userMeme);
+
+        this.setState({
+            userMemes:userMeme,
+        })
+    }
+
+
     render(){
         return(
             <div>
-                <form action="">
+                <form action="" onSubmit={this.userGeneratedMemes}>
+
+                    {/* <img src={} alt={} /> */}
+
                     <div>
-                        <label htmlFor="topText">Top Text</label>
-                        <input type="text" id="topText"/>
+                        <label htmlFor="topText" class="srOnly">Top Text</label>
+                        <input type="text" id="topText" required="true" placeholder="Top Text" ref={top => this.topText = top}/>
                     </div>
 
                     <div>
-                        <label htmlFor="bottomText">Bottom Text</label>
-                        <input type="text" id="bottomText"/>
+                        <label htmlFor="bottomText" class="srOnly">Bottom Text</label>
+                        <input type="text" id="bottomText" required="true" placeholder="Bottom Text" ref={bottom => this.bottomText = bottom}/>
                     </div>
 
                     <div>
-                        <label htmlFor="tags">Tags</label>
-                        <input type="text" id="tags"/>
+                        <label htmlFor="tags" class="srOnly">Tags</label>
+                        <input type="text" id="tags" required="true" placeholder="Tags" ref={tags => this.tags = tags}/>
                     </div>
 
-                    <div>
-                        <submit>Create Meme!</submit>
-                    </div>
+                    <input type="submit" className="submit" value="Submit Entry!"></input>
                 </form>
             </div>
         )
     }
 }
 
-export default memeCreator;
+export default MemeCreator;

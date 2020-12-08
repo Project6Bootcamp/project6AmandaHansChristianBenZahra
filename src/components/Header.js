@@ -12,8 +12,9 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <h1>{this.props.headerText}</h1>
-                <h2>{this.props.subheaderText}</h2>
+                <h1>Yes, you are definitely at the main page!</h1>
+                {/* <h1>{this.props.headerText}</h1>
+                <h2>{this.props.subheaderText}</h2> */}
             </header>
         )
     }

@@ -4,7 +4,7 @@ import firebase from './firebase.js';
 import './styles/App.scss';
 import axios from 'axios';
 import Header from './components/Header.js';
-import memeCreator from './memeCreator.js';
+import MemeCreator from './MemeCreator.js';
 import Footer from './components/Footer';
 
 /* 
@@ -95,17 +95,21 @@ class App extends Component{
 
   render(){
     return (
-      <Router>
-        {/* HEADER SECTION */}
-        <Header headerText="Meme in a Giffy" subheaderText="" />
-        <img src={ this.state.images } alt=""/>
-
-          {/* <Route exact path="/" component={ } /> */}
-          <Route path="/memecreator" component ={ memeCreator } />
-
-        {/* FOOTER SECTION */}
+      <Fragment>
+          {/* HEADER SECTION */}
+        <Router>
+          {/* <Header 
+            headerText="Meme in a Giffy"
+            subheaderText=""
+          /> */}
+          {/* <img src={ this.state.images } alt=""/> */}
+            <Route exact path="/" component={ Header } />
+            <Route path="/memecreator" component ={ MemeCreator } />
+            
+        </Router>
+        {/* FOOTER SECTION */ }
         <Footer />
-      </Router>
+      </Fragment>
     );
   }
 }
