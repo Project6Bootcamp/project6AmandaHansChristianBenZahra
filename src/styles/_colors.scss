@@ -1,3 +1,13 @@
 $primary: rgba(218, 215, 7, 1);
 $secondary: rgba(88, 155, 105, 1);
 $tertiary: rgba(248, 251, 145, 1);
+$white:rgb(226,226,226);
+$black:rgb(40,40,40);
+
+html {
+    background-color: $black;
+}
+
+header{
+    background-color:$primary;
+}
