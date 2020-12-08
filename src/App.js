@@ -4,6 +4,7 @@ import firebase from './firebase.js';
 import './styles/App.scss';
 import axios from 'axios';
 import Header from './components/Header.js';
+import memeCreator from './memeCreator.js';
 import Footer from './components/Footer';
 
 /* 
@@ -29,10 +30,7 @@ Meme Viewing Section:
     - User query based off of title and tags entered during meme creation 
     - display memes onto page based off of the search query above
     - 
-    
-
 */
-
 
 class App extends Component{
   constructor() {
@@ -102,8 +100,8 @@ class App extends Component{
         <Header headerText="Meme in a Giffy" subheaderText="" />
         <img src={ this.state.images } alt=""/>
 
-          {/* <Route exact path="/" component={ } />
-          <Route path="" component ={ } /> */}
+          {/* <Route exact path="/" component={ } /> */}
+          <Route path="/memecreator" component ={ memeCreator } />
 
         {/* FOOTER SECTION */}
         <Footer />
@@ -113,4 +111,3 @@ class App extends Component{
 }
 
 export default App;
- 
