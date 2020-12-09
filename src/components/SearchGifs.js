@@ -11,6 +11,8 @@ class SearchGifs extends Component {
             userInput: '',
             searchedGifs: [],
             displayedGifs: [],
+            gifUrl: [],
+            gifAlt: []
         }
     }
 
@@ -42,7 +44,7 @@ class SearchGifs extends Component {
                 api_key: 'AiDUd8ngqnIcqZ5dXnGV8r4Aymleu4wa',
                 q: query,
                 limit: 50,
-                rating: 'g'
+                rating: 'g',
             }
         }).then((apiResponse) => {
            // console.log(apiResponse.data.data.length);
@@ -85,13 +87,18 @@ class SearchGifs extends Component {
             this.setState({
                 displayedGifs: apiResponse.data.data
             })
-            //console.log('Trending Array', this.state.displayedGifs);
         })
     }
 
     passUrl = (e) => {
         console.log(e.target.src);
 
+        this.setState({
+            gifUrl:e.target.src,
+            gifUrl:e.target.alt
+        })
+    
+        console.log(this.state.gifUrl, this.state.gifAlt);
     }
 
 

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import firebase from './firebase.js';
+import firebase from '../firebase.js';
 
 class MemeCreator extends Component{
     constructor(){
