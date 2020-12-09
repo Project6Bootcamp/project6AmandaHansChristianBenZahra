@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Footer from './Footer.js';
 import '../styles/App.scss';
+import MemeCreator from './MemeCreator.js';
 
 class SearchGifs extends Component {
     constructor() {
@@ -11,7 +12,10 @@ class SearchGifs extends Component {
             userInput: '',
             searchedGifs: [],
             displayedGifs: [],
+            gifUrl: [],
+            gifAlt: [],
         }
+        
     }
 
     componentDidMount() {
@@ -30,7 +34,6 @@ class SearchGifs extends Component {
         //console.log('handle submit', e);
         this.giphyAPICall(this.state.userInput);
     }
-
 
 
     giphyAPICall = (query) => {
@@ -91,13 +94,18 @@ class SearchGifs extends Component {
 
     passUrl = (e) => {
         console.log(e.target.src);
-
+        this.setState({
+            gifUrl: e.target.src,
+            gifAlt: e.target.alt
+        })
+        document.getElementById('createMemeSection').style.display = 'flex';
     }
 
 
     render() {
         return ( 
             <Fragment>
+
                 <section>
                     <form onSubmit={this.handleSubmit} className="flexbox">
                         <label htmlFor="userGifSearch" className="srOnly">Search for Gif:</label>
@@ -112,6 +120,16 @@ class SearchGifs extends Component {
                         <button>Find Gif</button>
                     </form>
 
+                    <div>
+                        
+                    <MemeCreator 
+                        gifUrlProps={this.state.gifUrl}
+                        gifAltProps={this.state.gifAlt}
+                    />
+                       
+                   
+                    </div>
+
                     <ul className="gifs flexbox" id="displayedGifsId">
                         {
                             this.state.displayedGifs.map((trendingGif) => {
@@ -123,6 +141,7 @@ class SearchGifs extends Component {
                             })
                         }
                     </ul>
+                   
                 </section>
                 
 

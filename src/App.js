@@ -4,7 +4,7 @@ import firebase from './firebase.js';
 import './styles/App.scss';
 import axios from 'axios';
 import Header from './components/Header.js';
-import MemeCreator from './MemeCreator.js';
+import MemeCreator from './components/MemeCreator.js';
 import Footer from './components/Footer.js';
 import SearchGifs from './components/SearchGifs.js'
 
@@ -57,7 +57,7 @@ class App extends Component{
           /> */}
           {/* <img src={ this.state.images } alt=""/> */}
       
-              /* Calling the CreateMemes Component */}
+             
           <SearchGifs />
       
             <Route exact path="/" component={ Header } />
