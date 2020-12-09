@@ -17,7 +17,6 @@ button {
     margin-left: 10px;
 }
 
-
 .gifs {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
@@ -36,18 +35,18 @@ button {
         max-width: 100%;
     }
 
-    
 }
 
-.gifAndForm {
-    display:flex;
-}
+// .gifAndForm {
+//     display:flex;
+// }
 
 .createMemeForm {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+  
 }
 
 #createMemeSection {
@@ -64,6 +63,7 @@ button {
     background-color:rgba(1,1,1,0.9);
     position: fixed;
     display: flex;
+    margin: 0;
 }
 
 .selectedGif {

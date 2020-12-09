@@ -5,21 +5,15 @@ import Footer from './Footer.js';
 import '../styles/App.scss';
 import MemeCreator from './MemeCreator.js';
 
-
 class SearchGifs extends Component {
     constructor() {
         super();
         this.state = {
             userInput: '',
-            searchedGifs: [],
             displayedGifs: [],
-
-
             gifUrl: [],
             gifAlt: [],
-        }
-        
-
+        }   
     }
 
     componentDidMount() {
@@ -27,7 +21,6 @@ class SearchGifs extends Component {
     }
 
     handleInputChange = (e) => {
-        //console.log('handle input change', e.target.value);
         this.setState({
             userInput: e.target.value
         })
@@ -35,7 +28,6 @@ class SearchGifs extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        //console.log('handle submit', e);
         this.giphyAPICall(this.state.userInput);
     }
 
@@ -53,7 +45,6 @@ class SearchGifs extends Component {
                 rating: 'g'
             }
         }).then((apiResponse) => {
-           // console.log(apiResponse.data.data.length);
 
             if (apiResponse.data.data.length === 0) {
                 const errorMsg = [{
@@ -93,30 +84,31 @@ class SearchGifs extends Component {
             this.setState({
                 displayedGifs: apiResponse.data.data
             })
-            //console.log('Trending Array', this.state.displayedGifs);
         })
     }
 
-    passUrl = (e) => {
-        console.log(e.target.src);
+    noScroll() {
+        window.scrollTo(0, 0);
+    }
 
+
+    passUrl = (e) => {
         this.setState({
             gifUrl: e.target.src,
             gifAlt: e.target.alt
         })
         document.getElementById('createMemeSection').style.display = 'flex';
-
+        document.getElementById('displayedGifsId').style.marginTop = 0;
+        document.getElementById('searchGifId').style.display = 'none';
+        window.addEventListener('scroll', this.noScroll)
     }
 
 
     render() {
         return ( 
             <Fragment>
-
-
-
                 <section>
-                    <form onSubmit={this.handleSubmit} className="flexbox">
+                    <form onSubmit={this.handleSubmit} className="flexbox" id="searchGifId">
                         <label htmlFor="userGifSearch" className="srOnly">Search for Gif:</label>
                         <input
                             type="text"
@@ -129,24 +121,20 @@ class SearchGifs extends Component {
                         <button>Find Gif</button>
                     </form>
 
-
-                    <div>
-                        
-                    <MemeCreator 
-                        gifUrlProps={this.state.gifUrl}
-                        gifAltProps={this.state.gifAlt}
-                    />
-                       
-                   
+                    <div>          
+                        <MemeCreator 
+                            gifUrlProps={this.state.gifUrl}
+                            gifAltProps={this.state.gifAlt}
+                            stopScroll={this.noScroll}
+                        />
                     </div>
-
 
                     <ul className="gifs flexbox" id="displayedGifsId">
                         {
                             this.state.displayedGifs.map((trendingGif) => {
                                 return (
-                                    <li className="gifContainer" key={trendingGif.id} onClick={this.passUrl}>
-                                        <img src={trendingGif.images.downsized_large.url} alt={trendingGif.title} />
+                                    <li className="gifContainer normalPointer" key={trendingGif.id} >
+                                        <img className="gifs" src={trendingGif.images.downsized_large.url} alt={trendingGif.title} onClick={this.passUrl}/>
                                     </li>
                                 )
                             })
@@ -154,8 +142,6 @@ class SearchGifs extends Component {
                     </ul>
 
                 </section>
-                
-
             </Fragment>
         )
     }
