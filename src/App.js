@@ -1,14 +1,17 @@
-import { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import firebase from './firebase.js';
-import './styles/App.scss';
-import axios from 'axios';
-import Header from './components/Header.js';
-import MemeCreator from './components/MemeCreator.js';
-import Create from './components/CreateMeme';
-import DisplayMeme from './components/DisplayMeme.js';
-import Footer from './components/Footer.js';
-import SearchGifs from './components/SearchGifs.js'
+
+import { Component, Fragment } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import firebase from "./firebase.js";
+import "./styles/App.scss";
+import axios from "axios";
+import Header from "./components/Header.js";
+import MemeCreator from "./components/MemeCreator.js";
+import Create from "./components/CreateMeme";
+import DisplayMeme from "./components/DisplayMeme";
+import Footer from "./components/Footer.js";
+import SearchGifs from "./components/SearchGifs.js";
+import Home from "./components/Home";
+
 
 /* 
 Components to create: 
@@ -35,12 +38,14 @@ Meme Viewing Section:
     - 
 */
 
+
 class App extends Component{
   constructor() {
     super();
     this.state = {
 
     }
+
   }
 
   componentDidMount() {
@@ -50,33 +55,27 @@ class App extends Component{
 
   }
 
-  render(){
+  render() {
     return (
 
-      <Fragment>
-          {/* HEADER SECTION */}
-        <Router>
-          {/* <Header 
-            headerText="Meme in a Giffy"
-            subheaderText=""
-          /> */}
-          {/* <img src={ this.state.images } alt=""/> */}
-      
-             
-          <SearchGifs />
-      
-       <img src={ this.state.images } alt=""/>
+      <Router>
+        {/* HEADER SECTION */}
 
-          {/* <Route exact path="/" component={ } />
+        {/* <img src={ this.state.images } alt=""/>
+        {/* <SearchGifs /> */}
+        {/* <img src={this.state.images} alt="" /> */}
+        {/* <Route exact path="/" component={ } />
           <Route path="" component ={ } /> */}
-        <Create />
-        <DisplayMeme />
-      
-            <Route exact path="/" component={ Header } />
-            <Route path="/memecreator" component ={ MemeCreator } />
-            
-        </Router>
-        {/* FOOTER SECTION */ }
+
+        {/* <Create /> */}
+        {/* <DisplayMeme /> */}
+
+        <Route exact path="/" component={Home} />
+        <Route path="/memecreator" component={SearchGifs} />
+        <Route path="/search" component={DisplayMeme} />
+
+        {/* FOOTER SECTION */}
+
         <Footer />
       </Fragment>
 
@@ -85,3 +84,4 @@ class App extends Component{
 }
 
 export default App;
+
