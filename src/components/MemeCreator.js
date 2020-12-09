@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import firebase from '../firebase.js';
 
-
-
 class MemeCreator extends Component{
     constructor(){
         super();
@@ -15,7 +13,6 @@ class MemeCreator extends Component{
 
     userGeneratedMemes = (e) =>{
         e.preventDefault();
-        console.log(this.props.gifUrlProps, this.props.gifAltProps);
 
         const dbRef = firebase.database().ref();
 
@@ -73,7 +70,7 @@ class MemeCreator extends Component{
                     </form>
 
                 </div>
-                
+       
             </div>
         )
     }

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 
 class Header extends Component {
     constructor() {
@@ -11,11 +11,22 @@ class Header extends Component {
 
     render() {
         return (
-            <header>
-                <h1>Yes, you are definitely at the main page!</h1>
-                {/* <h1>{this.props.headerText}</h1>
-                <h2>{this.props.subheaderText}</h2> */}
-            </header>
+
+            <Fragment>
+                <header>
+                    <h1>{this.props.headerText}</h1>
+                    <h2>{this.props.subheaderText}</h2>
+                </header>
+
+                <button className="glow-on-hover" type="button">HOVER ME, THEN CLICK ME!</button>
+
+                <a className="btn-slice" href="#">
+                    <div className="top"><span>Sliced Button</span></div>
+                    <div className="bottom"><span>Sliced Button</span></div>
+                </a>
+
+            </Fragment>
+
         )
     }
 }
