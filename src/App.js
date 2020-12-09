@@ -77,7 +77,7 @@ class App extends Component{
         {/* FOOTER SECTION */}
 
         <Footer />
-      </Fragment>
+      </Router>
 
     );
   }

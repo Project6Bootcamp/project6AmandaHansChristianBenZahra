@@ -17,10 +17,8 @@ button {
     margin-left: 10px;
 }
 
-
 .gifs {
     display: grid;
-
 
     grid-template-columns: repeat(auto-fit, 300px);
     grid-auto-flow: row;
@@ -38,8 +36,6 @@ button {
         max-width: 100%;
     }
 }
-
-
 
 .gifAndForm {
     display:flex;
