@@ -1,13 +1,16 @@
-const UserMeme= ({ topText, bottomText, tags, image})=> {
-    return (
-                <div className="eachMemeStyle">               
-                    
-                    <p>{topText}</p>
-                    <img src={image} />
-                    <p>{bottomText}</p>
-                    <p>{tags}</p>
+import MemeVotes from './MemeVotes'
 
-                </div>
+const UserMeme= ({ topText, bottomText, tags, image, alt})=> {
+    return (
+        <li className="eachMemeStyleContainer">  
+            <div>
+                <p>{topText}</p>
+                <img src={image} alt={alt}/>
+                <p>{bottomText}</p>
+                {/* <p>{tags}</p> */}
+            </div>       
+            <MemeVotes />
+        </li>
         )
 }
 

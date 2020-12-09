@@ -25,7 +25,7 @@ class MemeCreator extends Component{
             memeAltText:this.props.gifAltProps,
 
             memeDate:time,
-            memeTop:this.topText.value,
+            memeTopText:this.topText.value,
             memeBottomText:this.bottomText.value,
             memeTags:userMemeTags
         }
@@ -53,7 +53,7 @@ class MemeCreator extends Component{
 
                     <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
 
-                        {/* <input className="srOnly" id="date" name="date" className="hiddenDate"></input> */}
+                        <input id="date" name="date" className="hiddenDate"></input>
 
                         <div>
                             <label htmlFor="topText">Top Text</label>
