@@ -11,6 +11,7 @@ class Header extends Component {
 
     render() {
         return (
+
             <Fragment>
                 <header>
                     <h1>{this.props.headerText}</h1>
@@ -25,6 +26,7 @@ class Header extends Component {
                 </a>
 
             </Fragment>
+
         )
     }
 }
