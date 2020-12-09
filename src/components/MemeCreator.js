@@ -6,7 +6,8 @@ class MemeCreator extends Component{
         super();
         this.state = {
             userMemes:'',
-
+            topText: '',
+            bottomText: ''
         }
     }
 
@@ -20,13 +21,9 @@ class MemeCreator extends Component{
         const userTagsInput = this.tags.value;
         const userMemeTags = userTagsInput.split(/[\s,]+/)
         const userMeme = {
-
-            memeImage:this.props.gifUrlProps,
-            memeAltText:this.props.gifAltProps,
-
             memeDate:time,
             memeTop:this.topText.value,
-            memeBottomText:this.bottomText.value,
+            memeBot:this.bottomText.value,
             memeTags:userMemeTags
         }
 
@@ -44,11 +41,10 @@ class MemeCreator extends Component{
 
     render(){
         return(
-
             <div className="createMemeSection" id="createMemeSection">
                 <div className="gifAndForm">
                     <div className="selectedGif">
-                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps}/>
+                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps} />
                     </div>
 
                     <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
@@ -56,26 +52,25 @@ class MemeCreator extends Component{
                         {/* <input className="srOnly" id="date" name="date" className="hiddenDate"></input> */}
 
                         <div>
-                            <label htmlFor="topText">Top Text</label>
+                            <label htmlFor="topText" className="srOnly">Tsop Text</label>
                             <input type="text" id="topText" required placeholder="Top Text" ref={top => this.topText = top} />
                         </div>
 
                         <div>
-                            <label htmlFor="bottomText">Bottom Text</label>
+                            <label htmlFor="bottomText" className="srOnly">Bottom Text</label>
                             <input type="text" id="bottomText" required placeholder="Bottom Text" ref={bottom => this.bottomText = bottom} />
                         </div>
 
                         <div>
-                            <label htmlFor="tags">Tags</label>
+                            <label htmlFor="tags" className="srOnly">Tags</label>
                             <input type="text" id="tags" required placeholder="Tags" ref={tags => this.tags = tags} />
                         </div>
 
-                        <input type="submit" className="submit" value="Submit!"></input>
+                        <input type="submit" className="submit" value="Submit Entry!"></input>
                     </form>
 
                 </div>
-
-
+       
             </div>
         )
     }

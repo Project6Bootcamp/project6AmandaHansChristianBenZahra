@@ -5,7 +5,6 @@ import Footer from './Footer.js';
 import '../styles/App.scss';
 import MemeCreator from './MemeCreator.js';
 
-
 class SearchGifs extends Component {
     constructor() {
         super();
@@ -13,13 +12,10 @@ class SearchGifs extends Component {
             userInput: '',
             searchedGifs: [],
             displayedGifs: [],
-
-
             gifUrl: [],
             gifAlt: [],
         }
         
-
     }
 
     componentDidMount() {
@@ -38,7 +34,6 @@ class SearchGifs extends Component {
         //console.log('handle submit', e);
         this.giphyAPICall(this.state.userInput);
     }
-
 
 
     giphyAPICall = (query) => {
@@ -99,21 +94,17 @@ class SearchGifs extends Component {
 
     passUrl = (e) => {
         console.log(e.target.src);
-
         this.setState({
             gifUrl: e.target.src,
             gifAlt: e.target.alt
         })
         document.getElementById('createMemeSection').style.display = 'flex';
-
     }
 
 
     render() {
         return ( 
             <Fragment>
-
-
 
                 <section>
                     <form onSubmit={this.handleSubmit} className="flexbox">
@@ -129,7 +120,6 @@ class SearchGifs extends Component {
                         <button>Find Gif</button>
                     </form>
 
-
                     <div>
                         
                     <MemeCreator 
@@ -139,7 +129,6 @@ class SearchGifs extends Component {
                        
                    
                     </div>
-
 
                     <ul className="gifs flexbox" id="displayedGifsId">
                         {
@@ -152,7 +141,7 @@ class SearchGifs extends Component {
                             })
                         }
                     </ul>
-
+                   
                 </section>
                 
 
