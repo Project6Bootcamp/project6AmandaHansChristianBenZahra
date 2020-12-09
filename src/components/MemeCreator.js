@@ -6,7 +6,8 @@ class MemeCreator extends Component{
         super();
         this.state = {
             userMemes:'',
-
+            userTopText:`Something`,
+            userBottomText:`Something`
         }
     }
 
@@ -47,7 +48,9 @@ class MemeCreator extends Component{
             <div className="createMemeSection" id="createMemeSection">
                 <div className="gifAndForm">
                     <div className="selectedGif">
-                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps}/>
+                        <span className="memeText">{this.state.userTopText}</span>
+                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps} />
+                        <span className="memeText">{this.state.userBottomText}</span>
                     </div>
 
                     <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
