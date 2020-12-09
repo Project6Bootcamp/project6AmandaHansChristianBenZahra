@@ -20,10 +20,6 @@ class DisplayMeme extends Component {
 
             let memeArray = [];
 
-            // console.log("firebaseDataObj", firebaseDataObj);
-
-            memeArray.push(firebaseDataObj);
-            // console.log("memeArray", memeArray);
 
             for (let propertyKey in firebaseDataObj) {
 
@@ -64,7 +60,7 @@ class DisplayMeme extends Component {
                             id={eachMeme.propertyKey}
                             topText={eachMeme.topText}
                             bottomText={eachMeme.bottomText}
-                            image="https://media1.giphy.com/media/J1AqKD8BLFlDXOY0nZ/giphy.gif"
+                            // image="https://media1.giphy.com/media/J1AqKD8BLFlDXOY0nZ/giphy.gif"
                             tags={eachMeme.tags}
                         
                         />

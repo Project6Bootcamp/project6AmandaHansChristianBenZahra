@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import firebase from './firebase.js';
+import firebase from '../firebase.js';
 
 class MemeCreator extends Component{
     constructor(){
@@ -47,17 +47,17 @@ class MemeCreator extends Component{
                     <input id="date" name="date" className="hiddenDate"></input>
 
                     <div>
-                        <label htmlFor="topText" class="srOnly">Top Text</label>
+                        <label htmlFor="topText" className="srOnly">Top Text</label>
                         <input type="text" id="topText" required="true" placeholder="Top Text" ref={top => this.topText = top}/>
                     </div>
 
                     <div>
-                        <label htmlFor="bottomText" class="srOnly">Bottom Text</label>
+                        <label htmlFor="bottomText" className="srOnly">Bottom Text</label>
                         <input type="text" id="bottomText" required="true" placeholder="Bottom Text" ref={bottom => this.bottomText = bottom}/>
                     </div>
 
                     <div>
-                        <label htmlFor="tags" class="srOnly">Tags</label>
+                        <label htmlFor="tags" className="srOnly">Tags</label>
                         <input type="text" id="tags" required="true" placeholder="Tags" ref={tags => this.tags = tags}/>
                     </div>
 
