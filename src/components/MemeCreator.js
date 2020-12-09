@@ -21,6 +21,8 @@ class MemeCreator extends Component{
         const userTagsInput = this.tags.value;
         const userMemeTags = userTagsInput.split(/[\s,]+/)
         const userMeme = {
+            memeImage:this.props.gifUrlProps,
+            memeAltText:this.props.gifAltProps,
             memeDate:time,
             memeTop:this.topText.value,
             memeBot:this.bottomText.value,
@@ -44,7 +46,7 @@ class MemeCreator extends Component{
             <div className="createMemeSection" id="createMemeSection">
                 <div className="gifAndForm">
                     <div className="selectedGif">
-                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps} />
+                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps}/>
                     </div>
 
                     <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
@@ -70,7 +72,7 @@ class MemeCreator extends Component{
                     </form>
 
                 </div>
-       
+
             </div>
         )
     }
