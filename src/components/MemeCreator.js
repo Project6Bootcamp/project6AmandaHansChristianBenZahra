@@ -52,7 +52,7 @@ class MemeCreator extends Component{
                         {/* <input className="srOnly" id="date" name="date" className="hiddenDate"></input> */}
 
                         <div>
-                            <label htmlFor="topText" className="srOnly">Top Text</label>
+                            <label htmlFor="topText" className="srOnly">Tsop Text</label>
                             <input type="text" id="topText" required placeholder="Top Text" ref={top => this.topText = top} />
                         </div>
 
