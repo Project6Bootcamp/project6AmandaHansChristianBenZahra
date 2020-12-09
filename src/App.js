@@ -5,6 +5,8 @@ import './styles/App.scss';
 import axios from 'axios';
 import Header from './components/Header.js';
 import MemeCreator from './MemeCreator.js';
+import Create from './components/CreateMeme';
+import DisplayMeme from './components/DisplayMeme';
 import Footer from './components/Footer.js';
 import SearchGifs from './components/SearchGifs.js'
 
@@ -43,11 +45,14 @@ class App extends Component{
 
   componentDidMount() {
     const dbRef = firebase.database().ref();
+
     console.log(`This is your firebase database:`, dbRef);
+
   }
 
   render(){
     return (
+
       <Fragment>
           {/* HEADER SECTION */}
         <Router>
@@ -57,8 +62,15 @@ class App extends Component{
           /> */}
           {/* <img src={ this.state.images } alt=""/> */}
       
-              /* Calling the CreateMemes Component */}
+             
           <SearchGifs />
+      
+       <img src={ this.state.images } alt=""/>
+
+          {/* <Route exact path="/" component={ } />
+          <Route path="" component ={ } /> */}
+        <Create />
+        <DisplayMeme />
       
             <Route exact path="/" component={ Header } />
             <Route path="/memecreator" component ={ MemeCreator } />
@@ -67,6 +79,7 @@ class App extends Component{
         {/* FOOTER SECTION */ }
         <Footer />
       </Fragment>
+
     );
   }
 }
