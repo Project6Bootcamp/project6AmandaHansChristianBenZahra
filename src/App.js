@@ -1,3 +1,4 @@
+
 import { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import firebase from "./firebase.js";
@@ -10,6 +11,7 @@ import DisplayMeme from "./components/DisplayMeme";
 import Footer from "./components/Footer.js";
 import SearchGifs from "./components/SearchGifs.js";
 import Home from "./components/Home";
+
 
 /* 
 Components to create: 
@@ -36,20 +38,26 @@ Meme Viewing Section:
     - 
 */
 
-class App extends Component {
+
+class App extends Component{
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+
+    }
+
   }
 
   componentDidMount() {
     const dbRef = firebase.database().ref();
 
     console.log(`This is your firebase database:`, dbRef);
+
   }
 
   render() {
     return (
+
       <Router>
         {/* HEADER SECTION */}
 
@@ -58,6 +66,7 @@ class App extends Component {
         {/* <img src={this.state.images} alt="" /> */}
         {/* <Route exact path="/" component={ } />
           <Route path="" component ={ } /> */}
+
         {/* <Create /> */}
         {/* <DisplayMeme /> */}
 
@@ -66,10 +75,13 @@ class App extends Component {
         <Route path="/search" component={DisplayMeme} />
 
         {/* FOOTER SECTION */}
+
         <Footer />
-      </Router>
+      </Fragment>
+
     );
   }
 }
 
 export default App;
+

@@ -20,7 +20,8 @@ button {
 
 .gifs {
     display: grid;
-    //grid-template-columns: repeat(5, 1fr);
+
+
     grid-template-columns: repeat(auto-fit, 300px);
     grid-auto-flow: row;
     gap: 25px;
@@ -38,52 +39,36 @@ button {
     }
 }
 
-// @media (max-width: 1500px) {
-//     .gifs {
-//         grid-template-columns: repeat(4, 1fr);
-//     }
-// }
 
 
-// @media (max-width: 1150px) {
-//     .gifs {
-//         grid-template-columns: repeat(3, 1fr);
-//     }
-// }
+.gifAndForm {
+    display:flex;
+}
 
-// @media (max-width: 850px) {
-//     .gifs {
-//         grid-template-columns: repeat(2, 1fr);
-//     }
-// }
+.createMemeForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-// @media (max-width: 550px) {
-//     .gifs {
-//         grid-template-columns: repeat(1, 1fr);
-//     }
-// }
+#createMemeSection {
+    display:none;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 
+.createMemeSection { 
+    width: 100%;
+    height: 100%;
+    background-color:rgba(1,1,1,0.9);
+    position: fixed;
+    display: flex;
+}
 
-// @media (max-width: 1683px) {
-//     .gifs {
-//         grid-template-columns: repeat(4, 1fr);
-//     }
-// }
+.selectedGif {
+    width: 400px;
+}
 
-// @media (max-width: 1345px) {
-//     .gifs {
-//         grid-template-columns: repeat(3, 1fr);
-//     }
-// }
-
-// @media (max-width: 1006px) {
-//     .gifs {
-//         grid-template-columns: repeat(2, 1fr);
-//     }
-// }
-
-// @media (max-width: 668px) {
-//     .gifs {
-//         grid-template-columns: repeat(1, 1fr);
-//     }
-// }

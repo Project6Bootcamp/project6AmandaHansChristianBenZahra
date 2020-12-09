@@ -6,6 +6,7 @@ class MemeCreator extends Component{
         super();
         this.state = {
             userMemes:'',
+
         }
     }
 
@@ -19,6 +20,10 @@ class MemeCreator extends Component{
         const userTagsInput = this.tags.value;
         const userMemeTags = userTagsInput.split(/[\s,]+/)
         const userMeme = {
+
+            memeImage:this.props.gifUrlProps,
+            memeAltText:this.props.gifAltProps,
+
             memeDate:time,
             memeTop:this.topText.value,
             memeBot:this.bottomText.value,
@@ -39,30 +44,38 @@ class MemeCreator extends Component{
 
     render(){
         return(
-            <div>
-                <form action="" onSubmit={this.userGeneratedMemes}>
 
-                    {/* <img src={} alt={} /> */}
-
-                    <input id="date" name="date" className="hiddenDate"></input>
-
-                    <div>
-                        <label htmlFor="topText" className="srOnly">Top Text</label>
-                        <input type="text" id="topText" required="true" placeholder="Top Text" ref={top => this.topText = top}/>
+            <div className="createMemeSection" id="createMemeSection">
+                <div className="gifAndForm">
+                    <div className="selectedGif">
+                        <img src={this.props.gifUrlProps} alt={this.props.gifAltProps}/>
                     </div>
 
-                    <div>
-                        <label htmlFor="bottomText" className="srOnly">Bottom Text</label>
-                        <input type="text" id="bottomText" required="true" placeholder="Bottom Text" ref={bottom => this.bottomText = bottom}/>
-                    </div>
+                    <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
 
-                    <div>
-                        <label htmlFor="tags" className="srOnly">Tags</label>
-                        <input type="text" id="tags" required="true" placeholder="Tags" ref={tags => this.tags = tags}/>
-                    </div>
+                        {/* <input className="srOnly" id="date" name="date" className="hiddenDate"></input> */}
 
-                    <input type="submit" className="submit" value="Submit Entry!"></input>
-                </form>
+                        <div>
+                            <label htmlFor="topText" className="srOnly">Top Text</label>
+                            <input type="text" id="topText" required placeholder="Top Text" ref={top => this.topText = top} />
+                        </div>
+
+                        <div>
+                            <label htmlFor="bottomText" className="srOnly">Bottom Text</label>
+                            <input type="text" id="bottomText" required placeholder="Bottom Text" ref={bottom => this.bottomText = bottom} />
+                        </div>
+
+                        <div>
+                            <label htmlFor="tags" className="srOnly">Tags</label>
+                            <input type="text" id="tags" required placeholder="Tags" ref={tags => this.tags = tags} />
+                        </div>
+
+                        <input type="submit" className="submit" value="Submit Entry!"></input>
+                    </form>
+
+                </div>
+
+
             </div>
         )
     }

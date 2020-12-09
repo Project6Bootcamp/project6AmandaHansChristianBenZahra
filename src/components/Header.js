@@ -1,4 +1,7 @@
+
 import { Component } from "react";
+
+
 
 class Header extends Component {
   constructor() {
@@ -9,6 +12,7 @@ class Header extends Component {
     };
   }
 
+
   render() {
     return (
       <header>
@@ -17,6 +21,7 @@ class Header extends Component {
       </header>
     );
   }
+
 }
 
 export default Header;
