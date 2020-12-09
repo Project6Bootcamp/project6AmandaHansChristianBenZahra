@@ -1,10 +1,15 @@
-import { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import firebase from './firebase.js';
-import './styles/App.scss';
-import axios from 'axios';
-import Header from './components/Header.js';
-import Footer from './components/Footer';
+import { Component, Fragment } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import firebase from "./firebase.js";
+import "./styles/App.scss";
+import axios from "axios";
+import Header from "./components/Header.js";
+import MemeCreator from "./components/MemeCreator.js";
+import Create from "./components/CreateMeme";
+import DisplayMeme from "./components/DisplayMeme";
+import Footer from "./components/Footer.js";
+import SearchGifs from "./components/SearchGifs.js";
+import Home from "./components/Home";
 
 /* 
 Components to create: 
@@ -22,88 +27,43 @@ Meme Creation Page
     
 Meme Viewing Section:
   Component for Customized Finished Meme:   
-      - User can upvote / downvote
+      - User can upvotebpm / downvote
         - Total votes are displayed
       - Save meme for later ( STRETCH GOAL )
   Gallery View on Meme Viewing Section: 
     - User query based off of title and tags entered during meme creation 
     - display memes onto page based off of the search query above
     - 
-    
-
 */
 
-
-class App extends Component{
+class App extends Component {
   constructor() {
     super();
-    this.state = {
-      images:'',
-      userInput: '',
-      upVotes: 0,
-      downVotes: 0,
-      totalVotes: 0,
-    }
+    this.state = {};
   }
 
   componentDidMount() {
-
-    this.giphyAPICall('dog');
-    this.giphyTrendingAPICall();
-    
-
     const dbRef = firebase.database().ref();
+
     console.log(`This is your firebase database:`, dbRef);
-    
   }
 
-  giphyAPICall = (query) => {
-    axios({
-      url: 'https://api.giphy.com/v1/gifs/search',
-      method: 'GET',
-      responseType: 'json',
-      params: {
-        api_key: 'AiDUd8ngqnIcqZ5dXnGV8r4Aymleu4wa',
-        q: query,
-        rating: 'g'
-      }
-    }).then((apiResponse) => {
-
-      const apiResults = apiResponse.data.data;
-      console.log(apiResults);
-
-      const results = apiResults[0].images.downsized_large;
-
-      this.setState({
-        images: results.url,
-      })
-    })
-  }
-
-  giphyTrendingAPICall = () => {
-    axios({
-      url: 'https://api.giphy.com/v1/gifs/trending',
-      method: 'GET',
-      responseType: 'json',
-      params: {
-        api_key: 'AiDUd8ngqnIcqZ5dXnGV8r4Aymleu4wa',
-        limit: 10,
-        rating: 'g'
-      }
-    }).then((apiResponse) => {
-      console.log('trending', apiResponse);
-    })
-  }
-
-  render(){
+  render() {
     return (
       <Router>
         {/* HEADER SECTION */}
-        <Header headerText="Meme in a Giffy" subheaderText="" />
-        <img src={ this.state.images } alt=""/>
 
-          {/* <Route exact path="/" component={ } />
+        {/* <img src={ this.state.images } alt=""/>
+        {/* <SearchGifs /> */}
+        {/* <img src={this.state.images} alt="" /> */}
+        {/* <Route exact path="/" component={ } />
           <Route path="" component ={ } /> */}
+        {/* <Create /> */}
+        {/* <DisplayMeme /> */}
+
+        <Route exact path="/" component={Home} />
+        <Route path="/memecreator" component={SearchGifs} />
+        <Route path="/search" component={DisplayMeme} />
 
         {/* FOOTER SECTION */}
         <Footer />
@@ -113,4 +73,3 @@ class App extends Component{
 }
 
 export default App;
- 
