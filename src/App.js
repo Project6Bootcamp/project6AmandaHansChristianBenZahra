@@ -6,7 +6,7 @@ import axios from 'axios';
 import Header from './components/Header.js';
 import MemeCreator from './components/MemeCreator.js';
 import Create from './components/CreateMeme';
-import DisplayMeme from './components/DisplayMeme';
+import DisplayMeme from './components/DisplayMeme.js';
 import Footer from './components/Footer.js';
 import SearchGifs from './components/SearchGifs.js'
 
