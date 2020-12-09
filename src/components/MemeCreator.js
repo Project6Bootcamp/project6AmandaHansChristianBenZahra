@@ -18,14 +18,14 @@ class MemeCreator extends Component{
         const time = document.getElementById('date').value = Date();
 
         const userTagsInput = this.tags.value;
-        const userMemeTags = userTagsInput.split(/[\s,]+/)
+        const userMemeTags = userTagsInput.split(/[\s,]+/);
         const userMeme = {
 
             memeImage:this.props.gifUrlProps,
             memeAltText:this.props.gifAltProps,
 
             memeDate:time,
-            memeTop:this.topText.value,
+            memeTopText:this.topText.value,
             memeBottomText:this.bottomText.value,
             memeTags:userMemeTags
         }
@@ -41,7 +41,6 @@ class MemeCreator extends Component{
         })
     }
 
-
     render(){
         return(
 
@@ -53,21 +52,21 @@ class MemeCreator extends Component{
 
                     <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
 
-                        {/* <input className="srOnly" id="date" name="date" className="hiddenDate"></input> */}
+                        <input className="srOnly" id="date" name="date" className="hiddenDate"></input>
 
                         <div>
                             <label htmlFor="topText">Top Text</label>
-                            <input type="text" id="topText" required placeholder="Top Text" ref={top => this.topText = top} />
+                            <input type="text" id="topText" className="userInput" required placeholder="Top Text" ref={top => this.topText = top} />
                         </div>
 
                         <div>
                             <label htmlFor="bottomText">Bottom Text</label>
-                            <input type="text" id="bottomText" required placeholder="Bottom Text" ref={bottom => this.bottomText = bottom} />
+                            <input type="text" id="bottomText" className="userInput" required placeholder="Bottom Text" ref={bottom => this.bottomText = bottom} />
                         </div>
 
                         <div>
                             <label htmlFor="tags">Tags</label>
-                            <input type="text" id="tags" required placeholder="Tags" ref={tags => this.tags = tags} />
+                            <input type="text" id="tags" className="userInput" required placeholder="Tags" ref={tags => this.tags = tags} />
                         </div>
 
                         <input type="submit" className="submit" value="Submit!"></input>

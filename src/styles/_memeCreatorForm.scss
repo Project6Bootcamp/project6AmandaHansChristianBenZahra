@@ -1,0 +1,36 @@
+.gifAndForm{
+    background-color:rgba(226,226,226,1);
+    padding:5rem;
+    border:5px solid $secondary;
+}
+
+.selectedGif{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hiddenDate{
+    display:none;
+}
+
+.createMemeForm{
+    margin-left:3rem;
+}
+
+label{
+    color: $black;
+    display:block;
+    text-align:left;
+    margin-bottom:0.4rem;
+}
+
+.userInput{
+    margin-bottom:2rem;
+}
+
+.createMemeForm .submit{
+    padding:1.5rem 0;
+    background-color:$black;
+    color:$white;
+}
