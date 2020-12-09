@@ -26,11 +26,12 @@ class DisplayMeme extends Component {
                 
                 const formattedObj = {
                     id: propertyKey,
-                    topText: firebaseDataObj[propertyKey].topText,
-                    bottomText: firebaseDataObj[propertyKey].bottomText,
-                    image: firebaseDataObj[propertyKey].image,
-                    tags: firebaseDataObj[propertyKey].tags,
-                    date: firebaseDataObj[propertyKey].date,
+                    topText: firebaseDataObj[propertyKey].memeTopText,
+                    bottomText: firebaseDataObj[propertyKey].memeBottomText,
+                    image: firebaseDataObj[propertyKey].memeImage,
+                    alt: firebaseDataObj[propertyKey].memeAltText,
+                    tags: firebaseDataObj[propertyKey].memeTags,
+                    date: firebaseDataObj[propertyKey].memeDate,
 
                 } 
 
@@ -53,20 +54,24 @@ class DisplayMeme extends Component {
 
         return (
             <div>
+                <ul className="eachMemeStyle">
                 {this.state.ogMemeArray.map((eachMeme) => {
                     return (
-
-                        <UserMeme 
-                            id={eachMeme.propertyKey}
-                            topText={eachMeme.topText}
-                            bottomText={eachMeme.bottomText}
-                            // image="https://media1.giphy.com/media/J1AqKD8BLFlDXOY0nZ/giphy.gif"
-                            tags={eachMeme.tags}
                         
-                        />
+                            <UserMeme 
+                                id={eachMeme.propertyKey}
+                                topText={eachMeme.topText}
+                                bottomText={eachMeme.bottomText}
+                                image={eachMeme.image}
+                                alt={eachMeme.alt}
+                                tags={eachMeme.tags}
+                            
+                            />
+                        
                         
                     );
             })}
+                </ul>
             </div>
         )
 

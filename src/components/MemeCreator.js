@@ -95,7 +95,7 @@ class MemeCreator extends Component{
 
                         <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
 
-                            <input className="srOnly" id="date" name="date" className="hiddenDate"></input>
+                            <input id="date" name="date" className="hiddenDate"></input>
 
                             <label htmlFor="topText">Top Text</label>
                             <input type="text" id="topText" className="userInput" required placeholder="Top Text" ref={top => this.topText = top} onChange={this.handleInputChangeTopText} maxLength="" />

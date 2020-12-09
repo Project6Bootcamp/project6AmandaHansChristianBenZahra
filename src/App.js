@@ -6,7 +6,6 @@ import "./styles/App.scss";
 import axios from "axios";
 import Header from "./components/Header.js";
 import MemeCreator from "./components/MemeCreator.js";
-import Create from "./components/CreateMeme";
 import DisplayMeme from "./components/DisplayMeme";
 import Footer from "./components/Footer.js";
 import SearchGifs from "./components/SearchGifs.js";
@@ -77,6 +76,7 @@ class App extends Component{
         {/* FOOTER SECTION */}
 
         <Footer />
+
       </Router>
 
     );
