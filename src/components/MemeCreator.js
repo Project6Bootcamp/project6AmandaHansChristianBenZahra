@@ -9,7 +9,10 @@ class MemeCreator extends Component{
         this.state = {
             userMemes:'',
             userTopText: '',
-            userBottomText: ''
+            userBottomText: '',
+            likes: 0,
+            dislikes: 0,
+            total: 0
         }
     }
 
@@ -40,7 +43,10 @@ class MemeCreator extends Component{
             memeDate:time,
             memeTopText:this.topText.value,
             memeBottomText:this.bottomText.value,
-            memeTags:userMemeTags
+            memeTags:userMemeTags,
+            memeLikes:this.state.likes,
+            memeDislikes: this.state.dislikes, 
+            memeTotalVotes:this.state.total,
         }
 
         this.topText.value = ''
