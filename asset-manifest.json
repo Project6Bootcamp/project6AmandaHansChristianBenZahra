@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/css/main.be5f6bec.chunk.css",
-    "main.js": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/main.84d9e5ed.chunk.js",
-    "main.js.map": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/main.84d9e5ed.chunk.js.map",
-    "runtime-main.js": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/runtime-main.65968b88.js",
-    "runtime-main.js.map": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/runtime-main.65968b88.js.map",
-    "static/js/2.416346bb.chunk.js": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/2.416346bb.chunk.js",
-    "static/js/2.416346bb.chunk.js.map": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/2.416346bb.chunk.js.map",
-    "static/js/3.099e1052.chunk.js": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js",
-    "static/js/3.099e1052.chunk.js.map": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js.map",
-    "index.html": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/index.html",
-    "static/css/main.be5f6bec.chunk.css.map": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/css/main.be5f6bec.chunk.css.map",
-    "static/js/2.416346bb.chunk.js.LICENSE.txt": "/Project6Bootcamp/project6AmandaHansChristianBenZahra/static/js/2.416346bb.chunk.js.LICENSE.txt"
+    "main.css": "/project6AmandaHansChristianBenZahra/static/css/main.6d66ff79.chunk.css",
+    "main.js": "/project6AmandaHansChristianBenZahra/static/js/main.0c15a371.chunk.js",
+    "main.js.map": "/project6AmandaHansChristianBenZahra/static/js/main.0c15a371.chunk.js.map",
+    "runtime-main.js": "/project6AmandaHansChristianBenZahra/static/js/runtime-main.de6518f4.js",
+    "runtime-main.js.map": "/project6AmandaHansChristianBenZahra/static/js/runtime-main.de6518f4.js.map",
+    "static/js/2.7fd6dd72.chunk.js": "/project6AmandaHansChristianBenZahra/static/js/2.7fd6dd72.chunk.js",
+    "static/js/2.7fd6dd72.chunk.js.map": "/project6AmandaHansChristianBenZahra/static/js/2.7fd6dd72.chunk.js.map",
+    "static/js/3.099e1052.chunk.js": "/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js",
+    "static/js/3.099e1052.chunk.js.map": "/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js.map",
+    "index.html": "/project6AmandaHansChristianBenZahra/index.html",
+    "static/css/main.6d66ff79.chunk.css.map": "/project6AmandaHansChristianBenZahra/static/css/main.6d66ff79.chunk.css.map",
+    "static/js/2.7fd6dd72.chunk.js.LICENSE.txt": "/project6AmandaHansChristianBenZahra/static/js/2.7fd6dd72.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.65968b88.js",
-    "static/js/2.416346bb.chunk.js",
-    "static/css/main.be5f6bec.chunk.css",
-    "static/js/main.84d9e5ed.chunk.js"
+    "static/js/runtime-main.de6518f4.js",
+    "static/js/2.7fd6dd72.chunk.js",
+    "static/css/main.6d66ff79.chunk.css",
+    "static/js/main.0c15a371.chunk.js"
   ]
 }
