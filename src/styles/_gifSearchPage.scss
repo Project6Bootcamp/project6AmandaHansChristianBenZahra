@@ -35,7 +35,6 @@ button {
         display: block;
         max-width: 100%;
     }
-
 }
 
 .flexboxSearchGifs {
@@ -58,7 +57,7 @@ button {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-  
+
 }
 
 #createMemeSection {
@@ -83,10 +82,8 @@ button {
     width: 400px;
 }
 
-
-
 .eachMemeStyle {
-   display: grid;
+    display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
     grid-auto-flow: row;
     gap: 25px;
@@ -101,14 +98,13 @@ button {
         flex-direction: column;
         justify-content: space-between;
     }
-        
 
         img{
             display: block;
             max-width: 100%;
         }
 
-       p{
+        p{
             font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
@@ -118,11 +114,8 @@ button {
             letter-spacing: 1.5px;
             margin-bottom: 10px;
             margin-top: 10px;
-
-       } 
-
+        } 
 }
-
 
 .voteBtns{
     display: flex;
@@ -134,8 +127,6 @@ button {
         color: black;
     }
 }
-
-
 
 .noGifFoundText {
     text-align: center;
@@ -182,7 +173,6 @@ button {
 .gifContainer:active {
     color: #000
 }
-
 
 .gifContainer:hover:before {
     opacity: 1;
