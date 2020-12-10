@@ -1,9 +1,13 @@
+// importing npm installs
 import { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Footer from './Footer.js';
-import '../styles/App.scss';
+
+// importing created pages & styles
 import MemeCreator from './MemeCreator.js';
+import Header from './Header.js';
+import '../styles/App.scss';
+
 
 class SearchGifs extends Component {
     constructor() {
@@ -16,16 +20,19 @@ class SearchGifs extends Component {
         }   
     }
 
+    // On mount, run axios (api call) function to display all the currently trending Gifs
     componentDidMount() {
         this.giphyTrendingAPICall();
     }
 
+    // When search field (Search Gifs Field) is being used, update state to record string value
     handleInputChange = (e) => {
         this.setState({
             userInput: e.target.value
         })
     }
 
+    // When user submits search query by pressing button (Find Gif Button), run axios (giphyAPICall) function that takes the userInput value from the search field and uses it in the api query field
     handleSubmit = (e) => {
         e.preventDefault();
         this.giphyAPICall(this.state.userInput);
@@ -87,9 +94,7 @@ class SearchGifs extends Component {
         })
     }
 
-    noScroll() {
-        window.scrollTo(0, 0);
-    }
+
 
 
     passUrl = (e) => {
@@ -99,16 +104,22 @@ class SearchGifs extends Component {
         })
         document.getElementById('createMemeSection').style.display = 'flex';
         document.getElementById('displayedGifsId').style.marginTop = 0;
+        document.getElementById('root').style.backgroundColor = 'rgba(1, 1, 1, 0.9)';
         document.getElementById('searchGifId').style.display = 'none';
-        window.addEventListener('scroll', this.noScroll)
+        document.getElementById('header').style.display = 'none';
     }
 
 
     render() {
         return ( 
             <Fragment>
-                <section>
-                    <form onSubmit={this.handleSubmit} className="flexbox" id="searchGifId">
+                <Header headerText="Meme in a Giffy" subheaderText="Search for Gifs to create your very own meme!" />
+
+                <section className="wrapper" id="wrapper">
+                 
+                    <div className="flexboxSearchGifs" id="searchGifId" >
+                    <form onSubmit={this.handleSubmit} className="flexbox searchGifForm" >
+
                         <label htmlFor="userGifSearch" className="srOnly">Search for Gif:</label>
                         <input
                             type="text"
@@ -118,30 +129,51 @@ class SearchGifs extends Component {
                             required
                             onChange={this.handleInputChange}
                         />
-                        <button>Find Gif</button>
+                        <button >Find Gif</button>
+
+
                     </form>
+                    <div className="viewMemesButtonContainer">
+                            <Link to={"/search"}>
+                                <button className="glow-on-hover" type="button">View Created Memes</button>
+                            </Link>
+                    </div>
+
+                 </div>
+
 
                     <div>          
                         <MemeCreator 
                             gifUrlProps={this.state.gifUrl}
                             gifAltProps={this.state.gifAlt}
-                            stopScroll={this.noScroll}
-                        />
+                       />
                     </div>
 
                     <ul className="gifs flexbox" id="displayedGifsId">
                         {
-                            this.state.displayedGifs.map((trendingGif) => {
-                                return (
-                                    <li className="gifContainer normalPointer" key={trendingGif.id} >
-                                        <img className="gifs" src={trendingGif.images.downsized_large.url} alt={trendingGif.title} onClick={this.passUrl}/>
-                                    </li>
-                                )
+                            this.state.displayedGifs.map((eachGif) => {
+                                // Conditional statement to check the id of the gif - if id of gif matches id for 'no results found' then return some additional text, else display all gifs with matching query
+                                if (eachGif.id === '123ABC') {
+                                    return (
+                                        <li className="gifContainer noPointer" key={eachGif.id} >
+                                            <p className="noGifFoundText">Sorry No GIFs found, search again!</p>
+                                            <img src={eachGif.images.downsized_large.url} alt={eachGif.title}/>
+                                        </li>
+                                    )
+                                } else {
+                                    return (
+                                        <li className="gifContainer normalPointer" key={eachGif.id} >
+                                            <img className="gifs" src={eachGif.images.downsized_large.url} alt={eachGif.title} onClick={this.passUrl} />
+                                        </li>
+                                    )
+                                }
+  
                             })
                         }
                     </ul>
 
                 </section>
+                
             </Fragment>
         )
     }
