@@ -87,10 +87,6 @@ class SearchGifs extends Component {
         })
     }
 
-    noScroll() {
-        window.scrollTo(0, 0);
-    }
-
 
     passUrl = (e) => {
         this.setState({
@@ -98,14 +94,16 @@ class SearchGifs extends Component {
             gifAlt: e.target.alt
         })
         document.getElementById('createMemeSection').style.display = 'flex';
+        document.getElementById("selectedGif").style.display = 'flex';
+        document.getElementById("createMemeForm").style.display =  'flex';
         document.getElementById('displayedGifsId').style.marginTop = 0;
         document.getElementById('searchGifId').style.display = 'none';
-        window.addEventListener('scroll', this.noScroll)
+        document.getElementById('postCreationMeme').style.display = 'none';
     }
 
 
     render() {
-        return ( 
+        return (
             <Fragment>
                 <section>
                     <form onSubmit={this.handleSubmit} className="flexbox" id="searchGifId">
@@ -125,7 +123,7 @@ class SearchGifs extends Component {
                         <MemeCreator 
                             gifUrlProps={this.state.gifUrl}
                             gifAltProps={this.state.gifAlt}
-                            stopScroll={this.noScroll}
+                            
                         />
                     </div>
 
