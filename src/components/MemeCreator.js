@@ -1,5 +1,6 @@
 
 import { Component } from 'react';
+import { Link } from "react-router-dom";
 import firebase from '../firebase.js';
 
 class MemeCreator extends Component{
@@ -62,17 +63,32 @@ class MemeCreator extends Component{
     hideCreateMemeSection = (e) => {
         if (e.target.id === "createMemeSection") {
             document.getElementById("createMemeSection").style.display = "none";
+            document.getElementById('header').style.display = 'flex';
             document.getElementById('displayedGifsId').style.marginTop = '20px'; 
-            window.removeEventListener('scroll', this.props.stopScroll);
             document.getElementById('searchGifId').style.display = 'flex';
+            document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
         }
     }
 
     closeMemeSection = () => {
         document.getElementById("createMemeSection").style.display = "none";
+        document.getElementById('header').style.display = 'flex';
         document.getElementById('displayedGifsId').style.marginTop = '20px';
-        window.removeEventListener('scroll', this.props.stopScroll);
         document.getElementById('searchGifId').style.display = 'flex';
+        document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
+    }
+
+    clearMemeForm = () =>{
+
+        document.getElementById("selectedGif").style.display = "none";
+        document.getElementById("createMemeForm").style.display = "none";
+        document.getElementById('displayedGifsId').style.marginTop = '20px';
+        document.getElementById('searchGifId').style.display = 'flex';
+        document.getElementById('postCreationMeme').style.display = 'block';
+
+        // alert(`You just created a meme!` );
+
+        // document.getElementById("gifAndForm").text(<a href="#">Click here to view your meme!</a>)
     }
 
     render(){
@@ -85,15 +101,23 @@ class MemeCreator extends Component{
                         <button className="closeMemeButton" onClick={this.closeMemeSection}>X</button>
                     </div>
 
-                    <div className="gifAndForm">
+                    <div className="gifAndForm" id="gifAndForm">
 
-                        <div className="selectedGif">
+                        <div className="selectedGif" id="selectedGif">
                             <h5 className="memeText memeTextTop">{this.state.userTopText}</h5>
                             <img src={this.props.gifUrlProps} alt={this.props.gifAltProps} />
                             <h5 className="memeText memeTextBottom">{this.state.userBottomText}</h5>
                         </div>
 
-                        <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm">
+                        <div id="postCreationMeme">
+                            <Link to={"/search"}>
+                                <button className="glow-on-hover" type="button">
+                                    Search Memes!
+                                </button>
+                            </Link>
+                        </div>
+
+                        <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm" id="createMemeForm">
 
                             <input className="srOnly" id="date" name="date" className="hiddenDate"></input>
 
@@ -104,18 +128,18 @@ class MemeCreator extends Component{
                             <input type="text" id="bottomText" className="userInput" required placeholder="Bottom Text" maxLength="30" ref={bottom => this.bottomText = bottom} onChange={this.handleInputChangeBottomText}/>
 
                             <label htmlFor="tags">Tags</label>
-                            <input type="text" id="tags" className="userInput" required placeholder="Separate tags by commas or space" ref={tags => this.tags = tags} />
+                            <input type="text" id="tags" className="userInput" required placeholder="Separate tags by commas or spaces" ref={tags => this.tags = tags} />
 
-                            <input type="submit" className="submit" value="Submit!"></input>
+                            <input type="submit" className="submit" value="Submit!" onClick={this.clearMemeForm}></input>
                         </form>
 
                     </div>
 
                 </div>
 
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
 export default MemeCreator;
