@@ -9,13 +9,13 @@ class Home extends Component {
         <Header headerText="Meme in a Giffy" subheaderText="" />
 
         <Link to={"/search"}>
-          <button className="glow-on-hover" type="button">
+          <button className="homeButtons" type="button">
             Search Memes!
           </button>
         </Link>
 
         <Link to={"/memecreator"}>
-          <button className="glow-on-hover" type="button">
+          <button className="homeButtons" type="button">
             Create Memes!
           </button>
         </Link>
