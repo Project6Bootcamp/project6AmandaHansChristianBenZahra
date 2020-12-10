@@ -1,76 +1,88 @@
-import firebase from '../firebase.js';
-import { Component } from 'react';
-import UserMeme from '../components/UserMeme.js'
+import firebase from "../firebase.js";
+import { Component } from "react";
+import UserMeme from "../components/UserMeme.js";
 
 class DisplayMeme extends Component {
-    constructor() {
-        super();
-        this.state = {
-            ogMemeArray: []
+  constructor() {
+    super();
+    this.state = {
+      ogMemeArray: [],
+    };
+  }
+
+  componentDidMount() {
+    firebase.database().ref();
+    const dbRef = firebase.database().ref();
+
+    dbRef.on("value", (data) => {
+      const firebaseDataObj = data.val();
+
+      let memeArray = [];
+
+      for (let propertyKey in firebaseDataObj) {
+        const formattedObj = {
+          id: propertyKey,
+          topText: firebaseDataObj[propertyKey].memeTopText,
+          bottomText: firebaseDataObj[propertyKey].memeBottomText,
+          image: firebaseDataObj[propertyKey].memeImage,
+          alt: firebaseDataObj[propertyKey].memeAltText,
+          tags: firebaseDataObj[propertyKey].memeTags,
+          date: firebaseDataObj[propertyKey].memeDate,
+        };
+
+        memeArray.push(formattedObj);
+
+        const sortedMemeArray = memeArray.sort(callback);
+        function callback(a, b) {
+          return new Date(b.date) - new Date(a.date);
         }
-    }
-    
-    componentDidMount() {
+      }
 
-        firebase.database().ref();
-        const dbRef = firebase.database().ref();
+      this.setState({
+        ogMemeArray: memeArray,
+      });
+    });
+  }
 
-        dbRef.on('value', (data) => {
-            const firebaseDataObj = data.val();
+  render() {
+    return (
+      <div>
+        <button
+          onClick={() => {
 
-            let memeArray = [];
+            let elements = document.getElementsByClassName("eachMemeStyleContainer");
 
-
-            for (let propertyKey in firebaseDataObj) {
-
-                
-                const formattedObj = {
-                    id: propertyKey,
-                    topText: firebaseDataObj[propertyKey].topText,
-                    bottomText: firebaseDataObj[propertyKey].bottomText,
-                    image: firebaseDataObj[propertyKey].image,
-                    tags: firebaseDataObj[propertyKey].tags,
-                    date: firebaseDataObj[propertyKey].date,
-
-                } 
-
-                memeArray.push(formattedObj)
-                // console.log("formattedObj", formattedObj);
-                // console.log("memeArray", memeArray);
+            for (let i = 0; i < elements.length; i++) {
+              elements[i].style.display = "none";
             }
 
-            console.log("memeArray", memeArray);
-            this.setState({
-                
-                ogMemeArray: memeArray,
-            })
-            
-        })
-        
-    }
-
-    render() { 
-
-        return (
-            <div>
-                {this.state.ogMemeArray.map((eachMeme) => {
-                    return (
-
-                        <UserMeme 
-                            id={eachMeme.propertyKey}
-                            topText={eachMeme.topText}
-                            bottomText={eachMeme.bottomText}
-                            // image="https://media1.giphy.com/media/J1AqKD8BLFlDXOY0nZ/giphy.gif"
-                            tags={eachMeme.tags}
-                        
-                        />
-                        
-                    );
-            })}
-            </div>
-        )
-
-    }
+            let nextElement = document.getElementsByClassName("cat");
+            for (let n = 0; n < nextElement.length; n++) {
+              nextElement[n].style.display = "block";
+            }
+          }}
+        >
+          Search
+        </button>
+        <ul className="eachMemeStyle">
+          {this.state.ogMemeArray.map((eachMeme) => {
+            return (
+              <div>
+                <UserMeme
+                  id={eachMeme.propertyKey}
+                  topText={eachMeme.topText}
+                  bottomText={eachMeme.bottomText}
+                  image={eachMeme.image}
+                  alt={eachMeme.alt}
+                  tags={eachMeme.tags}
+                />
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default DisplayMeme;
