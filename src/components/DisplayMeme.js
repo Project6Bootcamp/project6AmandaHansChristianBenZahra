@@ -49,13 +49,17 @@ class DisplayMeme extends Component {
       <div>
         <button
           onClick={() => {
-            let elements = document.getElementsByClassName(
-              "eachMemeStyleContainer"
-            );
+
+            let elements = document.getElementsByClassName("eachMemeStyleContainer");
+
             for (let i = 0; i < elements.length; i++) {
               elements[i].style.display = "none";
             }
-            document.getElementsByClassName("hello").style.display = "block";
+
+            let nextElement = document.getElementsByClassName("cat");
+            for (let n = 0; n < nextElement.length; n++) {
+              nextElement[n].style.display = "block";
+            }
           }}
         >
           Search
