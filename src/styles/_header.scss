@@ -1,3 +1,44 @@
 header {
-    font-family: $heading;
+  font-family: $heading;
+  height: 10vh;
+  border-bottom: 2px solid $primary;
+  margin-bottom: 20px;
+
+  //   box-shadow: 5px 5px 10px white;
+  h1 {
+    font-size: 130px;
+    text-transform: uppercase;
+    font-family: $secondary;
+  }
 }
+
+// .slideInDown {
+//   -webkit-animation-name: slideInDown;
+//   animation-name: slideInDown;
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
+// @-webkit-keyframes slideInDown {
+//   0% {
+//     -webkit-transform: translateY(-100%);
+//     transform: translateY(-100%);
+//     visibility: visible;
+//   }
+//   100% {
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+// }
+// @keyframes slideInDown {
+//   0% {
+//     -webkit-transform: translateY(-100%);
+//     transform: translateY(-100%);
+//     visibility: visible;
+//   }
+//   100% {
+//     -webkit-transform: translateY(0);
+//     transform: translateY(0);
+//   }
+// }
