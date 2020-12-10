@@ -94,24 +94,24 @@ class SearchGifs extends Component {
         })
     }
 
-
-
-
     passUrl = (e) => {
         this.setState({
             gifUrl: e.target.src,
             gifAlt: e.target.alt
         })
         document.getElementById('createMemeSection').style.display = 'flex';
+        document.getElementById("selectedGif").style.display = 'flex';
+        document.getElementById("createMemeForm").style.display =  'flex';
         document.getElementById('displayedGifsId').style.marginTop = 0;
         document.getElementById('root').style.backgroundColor = 'rgba(1, 1, 1, 0.9)';
         document.getElementById('searchGifId').style.display = 'none';
         document.getElementById('header').style.display = 'none';
+        document.getElementById('postCreationMeme').style.display = 'none';
     }
 
 
     render() {
-        return ( 
+        return (
             <Fragment>
                 <Header headerText="Meme in a Giffy" subheaderText="Search for Gifs to create your very own meme!" />
 
@@ -146,7 +146,8 @@ class SearchGifs extends Component {
                         <MemeCreator 
                             gifUrlProps={this.state.gifUrl}
                             gifAltProps={this.state.gifAlt}
-                       />
+                        />
+
                     </div>
 
                     <ul className="gifs flexbox" id="displayedGifsId">
