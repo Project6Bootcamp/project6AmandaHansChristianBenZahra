@@ -116,7 +116,7 @@ class SearchGifs extends Component {
                 <Header headerText="Meme in a Giffy" subheaderText="Search for Gifs to create your very own meme!" />
 
                 <section className="wrapper" id="wrapper">
-                 
+
                     <div className="flexboxSearchGifs" id="searchGifId" >
                     <form onSubmit={this.handleSubmit} className="flexbox searchGifForm" >
 
@@ -139,7 +139,7 @@ class SearchGifs extends Component {
                             </Link>
                     </div>
 
-                 </div>
+                </div>
 
 
                     <div>          
