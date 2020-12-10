@@ -67,7 +67,7 @@ class DisplayMeme extends Component {
         <ul className="eachMemeStyle">
           {this.state.ogMemeArray.map((eachMeme) => {
             return (
-              <div>
+            
                 <UserMeme
                   id={eachMeme.propertyKey}
                   topText={eachMeme.topText}
@@ -76,7 +76,7 @@ class DisplayMeme extends Component {
                   alt={eachMeme.alt}
                   tags={eachMeme.tags}
                 />
-              </div>
+              
             );
           })}
         </ul>
