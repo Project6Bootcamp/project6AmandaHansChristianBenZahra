@@ -63,15 +63,19 @@ class MemeCreator extends Component{
     hideCreateMemeSection = (e) => {
         if (e.target.id === "createMemeSection") {
             document.getElementById("createMemeSection").style.display = "none";
-            document.getElementById('displayedGifsId').style.marginTop = '20px';           
+            document.getElementById('header').style.display = 'flex';
+            document.getElementById('displayedGifsId').style.marginTop = '20px'; 
             document.getElementById('searchGifId').style.display = 'flex';
+            document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
         }
     }
 
     closeMemeSection = () => {
         document.getElementById("createMemeSection").style.display = "none";
+        document.getElementById('header').style.display = 'flex';
         document.getElementById('displayedGifsId').style.marginTop = '20px';
         document.getElementById('searchGifId').style.display = 'flex';
+        document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
     }
 
     clearMemeForm = () =>{
