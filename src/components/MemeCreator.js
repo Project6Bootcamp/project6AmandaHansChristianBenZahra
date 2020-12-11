@@ -79,16 +79,11 @@ class MemeCreator extends Component{
     }
 
     clearMemeForm = () =>{
-
         document.getElementById("selectedGif").style.display = "none";
         document.getElementById("createMemeForm").style.display = "none";
         document.getElementById('displayedGifsId').style.marginTop = '20px';
         document.getElementById('searchGifId').style.display = 'flex';
         document.getElementById('postCreationMeme').style.display = 'block';
-
-        // alert(`You just created a meme!` );
-
-        // document.getElementById("gifAndForm").text(<a href="#">Click here to view your meme!</a>)
     }
 
     render(){
