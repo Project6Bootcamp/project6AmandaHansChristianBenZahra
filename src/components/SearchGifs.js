@@ -3,7 +3,7 @@
 
 // importing npm installs
 import { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 // importing created pages & styles
 import MemeCreator from "./MemeCreator.js";
@@ -38,12 +38,11 @@ class SearchGifs extends Component {
         e.preventDefault();
         this.giphyAPICall(this.state.userInput);
 
+        // functionality to make search disappear after search submit
         document.getElementById("gifHeader").querySelector(".gifHeaderChange").innerHTML = `${this.state.userInput}`; 
-
         this.setState({
             userInput: "",
         });
-
         document.getElementById("userGifSearch").value = '';
     }
 
@@ -150,8 +149,6 @@ class SearchGifs extends Component {
                 <MemeCreator gifUrlProps={this.state.gifUrl} gifAltProps={this.state.gifAlt}/>
 
                 <section className="wrapper">
-
-                    <h4 id="gifHeader"><span className="gifHeaderChange">Trending</span> Gifs</h4>
                  
                     {/* Div containing the search/navigation bar above displayed gifs */}
                     <div className="flexboxSearchGifs" id="searchGifId">
@@ -170,7 +167,10 @@ class SearchGifs extends Component {
                             </Link>
                         </div>
                     </div>
-                
+                    
+                    {/* H4 updating everytime new search has been performed */}
+                    <h4 id="gifHeader" className="gifHeader"><span className="gifHeaderChange">Trending</span> Gifs</h4>
+
                     {/* Ul containing all gifs */}
                     <ul className="gifs flexbox" id="displayedGifsId">
                         

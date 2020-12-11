@@ -137,7 +137,7 @@ class DisplayMeme extends Component {
 
         </div>
 
-        <h4 id="memeHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
+        <h4 id="memeHeader" className="gifHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
 
         <ul className="eachMemeStyle flexbox">
           {this.state.ogMemeArray.map((eachMeme) => {
