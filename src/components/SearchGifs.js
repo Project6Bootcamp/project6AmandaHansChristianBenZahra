@@ -37,6 +37,14 @@ class SearchGifs extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.giphyAPICall(this.state.userInput);
+
+        document.getElementById("gifHeader").querySelector(".gifHeaderChange").innerHTML = `${this.state.userInput}`; 
+
+        this.setState({
+            userInput: "",
+        });
+
+        document.getElementById("userGifSearch").value = '';
     }
 
     // api call to GIPHY that gets returns based off of a user search query (the userInput state), this api function gets fired off of the user submitting their search 
@@ -134,7 +142,7 @@ class SearchGifs extends Component {
     render() {
         return (
             <Fragment>
-                <Header headerText="Meme in a Giffy" subheaderText="Search for Gifs to create your very own meme!" />
+                <Header headerText="Meme in a Giffy" />
 
                 {/* Calling the component MemeCreator to allow user to create their own Meme
                 - passes component the url and the alt text of the gif  
@@ -142,6 +150,8 @@ class SearchGifs extends Component {
                 <MemeCreator gifUrlProps={this.state.gifUrl} gifAltProps={this.state.gifAlt}/>
 
                 <section className="wrapper">
+
+                    <h4 id="gifHeader"><span className="gifHeaderChange">Trending</span> Gifs</h4>
                  
                     {/* Div containing the search/navigation bar above displayed gifs */}
                     <div className="flexboxSearchGifs" id="searchGifId">
@@ -166,19 +176,19 @@ class SearchGifs extends Component {
                         
                         {
                             // mapping over the state containing which is set from axios (api call)
-                            this.state.displayedGifs.map((eachGif) => {
+                            this.state.displayedGifs.map((eachGif, gifNum) => {
 
                                 // Conditional statement for error handling if no results are found after a user searches, adds additional text to the page that the regular render wouldn't display
                                 if (eachGif.id === "123ABC") {
                                     return (
-                                        <li className="gifContainer noPointer" key={eachGif.id}>
+                                        <li tabIndex={gifNum} className="gifContainer noPointer" key={eachGif.id}>
                                             <p className="noGifFoundText">Sorry No GIFs found, search again!</p>
                                             <img src={eachGif.images.downsized_large.url} alt={eachGif.title}/>
                                         </li>
                                     )
                                 } else {
                                     return (
-                                        <li className="gifContainer normalPointer" key={eachGif.id} onClick={this.passUrl}>
+                                        <li tabIndex={gifNum} className="gifContainer normalPointer" key={eachGif.id} onClick={this.passUrl} onKeyPress={this.passUrl}>
                                             <img src={eachGif.images.downsized_large.url} alt={eachGif.title}  />
                                         </li>
                                     )
