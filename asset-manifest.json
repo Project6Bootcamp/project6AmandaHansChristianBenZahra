@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/project6AmandaHansChristianBenZahra/static/css/main.a7e5656e.chunk.css",
+    "main.css": "/project6AmandaHansChristianBenZahra/static/css/main.17d59f4a.chunk.css",
     "main.js": "/project6AmandaHansChristianBenZahra/static/js/main.2e94f08c.chunk.js",
     "main.js.map": "/project6AmandaHansChristianBenZahra/static/js/main.2e94f08c.chunk.js.map",
     "runtime-main.js": "/project6AmandaHansChristianBenZahra/static/js/runtime-main.de6518f4.js",
@@ -10,13 +10,13 @@
     "static/js/3.099e1052.chunk.js": "/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js",
     "static/js/3.099e1052.chunk.js.map": "/project6AmandaHansChristianBenZahra/static/js/3.099e1052.chunk.js.map",
     "index.html": "/project6AmandaHansChristianBenZahra/index.html",
-    "static/css/main.a7e5656e.chunk.css.map": "/project6AmandaHansChristianBenZahra/static/css/main.a7e5656e.chunk.css.map",
+    "static/css/main.17d59f4a.chunk.css.map": "/project6AmandaHansChristianBenZahra/static/css/main.17d59f4a.chunk.css.map",
     "static/js/2.c10294e9.chunk.js.LICENSE.txt": "/project6AmandaHansChristianBenZahra/static/js/2.c10294e9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.de6518f4.js",
     "static/js/2.c10294e9.chunk.js",
-    "static/css/main.a7e5656e.chunk.css",
+    "static/css/main.17d59f4a.chunk.css",
     "static/js/main.2e94f08c.chunk.js"
   ]
 }
