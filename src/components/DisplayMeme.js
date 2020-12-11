@@ -82,6 +82,12 @@ class DisplayMeme extends Component {
 
     document.getElementById("memeHeader").querySelector(".memeHeaderChange").innerHTML = `${this.state.userMemeSearch}`; 
 
+    this.setState({
+      userMemeSearch: "",
+    });
+
+    document.getElementById("memeSearch").value = '';
+
   };
 
   upVote = (propertyKey, likes, totalVotes) => {
@@ -105,7 +111,7 @@ class DisplayMeme extends Component {
   render() {
     return (
       
-      <div>
+      <div className="fillScreen">
         <Header headerText="Meme in a Giffy" subheaderText="" />
 
         {/* Search Memes */}
