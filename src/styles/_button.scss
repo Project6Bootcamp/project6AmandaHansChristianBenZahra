@@ -138,3 +138,16 @@
   top: 0;
   border-radius: 10px;
 }
+
+/// button on the meme upvote and down vote//@extend
+
+.downVote:focus, 
+.downVote:hover {
+  color: red;
+  
+}
+.upVote:focus, 
+.upVote:hover {
+  color: green;
+}
+

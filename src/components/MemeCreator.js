@@ -58,24 +58,29 @@ class MemeCreator extends Component{
         this.setState({
             userMemes:userMeme,
         })
+
+        // clear the elements associated with the create meme page and display the button allowing user to view created meme
+        // fires when user submits their created meme
+        document.getElementById("selectedGif").style.display = "none";
+        document.getElementById("createMemeForm").style.display = "none";
+        document.getElementById('displayedGifsId').style.marginTop = '20px';
+        document.getElementById('searchGifId').style.display = 'flex';
+        document.getElementById('postCreationMeme').style.display = 'flex';
     }
 
+    // function to hide the create meme section. function fires when user selects anywhere on the screen that is NOT in the create meme section
     hideCreateMemeSection = (e) => {
         if (e.target.id === "createMemeSection") {
-            document.getElementById("createMemeSection").style.display = "none";
-            document.getElementById('header').style.display = 'flex';
-            document.getElementById('displayedGifsId').style.marginTop = '20px'; 
-            document.getElementById('searchGifId').style.display = 'flex';
-            document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
+            this.closeMemeSection();
         }
     }
 
+    // function that runs to hide everything create meme related, and show everything that's relevant to the search gif page, fires when user selects the X button
     closeMemeSection = () => {
         document.getElementById("createMemeSection").style.display = "none";
         document.getElementById('header').style.display = 'flex';
         document.getElementById('displayedGifsId').style.marginTop = '20px';
         document.getElementById('searchGifId').style.display = 'flex';
-        document.getElementById('root').style.backgroundColor = 'rgb(40,40,40)';
     }
 
     clearMemeForm = () =>{
@@ -104,15 +109,18 @@ class MemeCreator extends Component{
                             <h5 className="memeText memeTextBottom">{this.state.userBottomText}</h5>
                         </div>
 
-                        <div id="postCreationMeme">
-                            <Link to={"/search"}>
-                                <button className="glow-on-hover" type="button">
-                                    Search Memes!
+                        {/* post creation screen - gets displayed after user submits meme */}
+                        <div className="postCreationMeme" id="postCreationMeme">
+                            <p className="creatingMemeText">⚙Creating Your Meme Now⚙</p>
+                            <Link to={"/search"}>                         
+                                <button className="glow-on-hover searchGifButton" type="button">
+                                    View your Meme!
                                 </button>
                             </Link>
                         </div>
 
-                        <form action="" onSubmit={this.userGeneratedMemes} className="createMemeForm" id="createMemeForm">
+                        <form action="" onSubmit={this.userGeneratedMemes}                      
+                        className="createMemeForm" id="createMemeForm">
 
                             <input className="srOnly" id="date" name="date" className="hiddenDate"></input>
 
@@ -125,7 +133,7 @@ class MemeCreator extends Component{
                             <label htmlFor="tags">Tags</label>
                             <input type="text" id="tags" className="userInput" required placeholder="Separate tags by commas or spaces" ref={tags => this.tags = tags} />
 
-                            <input type="submit" className="submit" value="Submit!" onClick={this.clearMemeForm}></input>
+                            <input type="submit" className="submit" value="Submit!" ></input>
                         </form>
 
                     </div>
