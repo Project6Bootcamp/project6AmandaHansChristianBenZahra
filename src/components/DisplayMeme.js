@@ -1,5 +1,6 @@
 import firebase from "../firebase.js";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import UserMeme from "../components/UserMeme.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -112,31 +113,33 @@ class DisplayMeme extends Component {
     return (
       
       <div className="fillScreen">
+
         <Header headerText="Meme in a Giffy" subheaderText="" />
 
+        <section className="wrapper">
+
         {/* Search Memes */}
-        <form
-          className="flexbox"
-          id="memeSearchBar"
-          onSubmit={this.handleMemeSubmit}
-        >
-          <label htmlFor="memeSearch" className="srOnly">
-            Search for Meme:
-          </label>
-          <input
-            type="text"
-            id="memeSearch"
-            name="userMemeSearch"
-            placeholder="Search Memes"
-            required
-            onChange={this.handleMemeInputChange}
-          />
-          <button>Search</button>
-        </form>
+        <div className="flexboxSearchGifs">
+          {/* div containing the search feature */}
+            <form className="flexbox searchGifForm" id="memeSearchBar" onSubmit={this.handleMemeSubmit}>
+            <label htmlFor="memeSearch" className="srOnly">Search for Meme:</label>
+            <input type="text" id="memeSearch" name="userMemeSearch" placeholder="Search Memes" required onChange={this.handleMemeInputChange} />
+            <button className="glow-on-hover searchGifButton">Search</button>
+          </form>
+
+          {/* div containing button to navigate to meme search page */}
+          <div className="viewMemesButtonContainer">
+
+            <Link to={"/memecreator"}>
+              <button className="glow-on-hover" type="button">Create New Meme</button>
+            </Link>
+          </div>
+
+        </div>
 
         <h4 id="memeHeader" className="gifHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
 
-        <ul className="eachMemeStyle">
+        <ul className="eachMemeStyle flexbox">
           {this.state.ogMemeArray.map((eachMeme) => {
             return (
               <UserMeme
@@ -155,6 +158,7 @@ class DisplayMeme extends Component {
             );
           })}
         </ul>
+        </section>
       </div>
     );
   }
