@@ -134,7 +134,7 @@ class DisplayMeme extends Component {
           <button>Search</button>
         </form>
 
-        <h4 id="memeHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
+        <h4 id="memeHeader" className="gifHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
 
         <ul className="eachMemeStyle">
           {this.state.ogMemeArray.map((eachMeme) => {

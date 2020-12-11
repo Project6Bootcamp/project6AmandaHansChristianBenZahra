@@ -23,7 +23,7 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
         {/* <p>{tags}</p> */}
       </div>
 
-      <div clasName="voteBtns">
+      <div className="voteBtns">
 
         <button className="totalBtn">Total {totalVotes}</button>
    
