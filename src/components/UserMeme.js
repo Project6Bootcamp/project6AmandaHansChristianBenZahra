@@ -23,6 +23,7 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
         {/* <p>{tags}</p> */}
       </div>
 
+
       <div className="voteButtons">
         <div>
           <button className="totalBtn">Total {totalVotes}</button>
@@ -38,6 +39,7 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
             <FontAwesomeIcon icon={faThumbsDown} />
           </button>
         </div>
+
       </div>
 
     </li>

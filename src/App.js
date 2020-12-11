@@ -1,10 +1,6 @@
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import firebase from "./firebase.js";
 import "./styles/App.scss";
-import axios from "axios";
-import Header from "./components/Header.js";
-import MemeCreator from "./components/MemeCreator.js";
 import DisplayMeme from "./components/DisplayMeme";
 import Footer from "./components/Footer.js";
 import SearchGifs from "./components/SearchGifs.js";

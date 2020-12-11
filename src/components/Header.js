@@ -13,9 +13,9 @@ class Header extends Component {
     return (
       <header id='header'>
 
-        <div class='container projects'><h1>{this.props.headerText}</h1>
+        <div className='container projects'><h1>{this.props.headerText}</h1>
 
-          <div class="overlay"></div>
+          <div className="overlay"></div>
         </div>
 
 
