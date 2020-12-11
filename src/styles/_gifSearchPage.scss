@@ -161,7 +161,8 @@
     color: #000
 }
 
-.gifContainer:hover:before {
+.gifContainer:hover:before
+.gifContainer:focus:before {
     opacity: 1;
 }
 

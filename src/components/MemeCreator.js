@@ -78,7 +78,7 @@ class MemeCreator extends Component{
     // function that runs to hide everything create meme related, and show everything that's relevant to the search gif page, fires when user selects the X button
     closeMemeSection = () => {
         document.getElementById("createMemeSection").style.display = "none";
-        document.getElementById('header').style.display = 'flex';
+        document.getElementById('header').style.display = 'block';
         document.getElementById('displayedGifsId').style.marginTop = '20px';
         document.getElementById('searchGifId').style.display = 'flex';
     }
