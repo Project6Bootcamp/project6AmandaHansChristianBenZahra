@@ -76,7 +76,6 @@ class SearchGifs extends Component {
 
                 // else statement catching results from api call and storing result in the displayed Gifs state
             } else {
-                console.log(apiResponse.data.data);
                 this.setState({
                     displayedGifs: apiResponse.data.data,
                 })
@@ -112,7 +111,6 @@ class SearchGifs extends Component {
 
         // conditional statement to get the src of the gif regardless of if the user is clicking on the li containing the image or the image itself
         if (e.target.firstChild != null) {
-            console.log(e.target)
             this.setState({
                 gifUrl: e.target.firstChild.src,
                 gifAlt: e.target.firstChild.alt
