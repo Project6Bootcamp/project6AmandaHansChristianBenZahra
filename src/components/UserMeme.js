@@ -24,12 +24,13 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
       </div>
       
       <div clasName="voteBtns">
+
+        <button className="totalBtn">Total {totalVotes}</button>
+
         <button aria-label="upvote this meme" onClick={() => { upVoteHandler(propertyKey, likes, totalVotes)}} >
           <p>{likes}</p>
           <FontAwesomeIcon icon={faThumbsUp} />
         </button>
-
-        <button>Total {totalVotes}</button>
 
         <button aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} > 
           <p>{dislikes}</p>
