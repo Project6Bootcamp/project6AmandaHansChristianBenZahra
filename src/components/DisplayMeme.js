@@ -3,10 +3,8 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import UserMeme from "../components/UserMeme.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-// import { faThumbsDown , faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 
 library.add(faThumbsDown, faThumbsUp);
 
@@ -57,7 +55,6 @@ class DisplayMeme extends Component {
   }
 
   handleMemeInputChange = (e) => {
-    console.log(e.target.value);
 
     this.setState({
       userMemeSearch: e.target.value.toLowerCase(),
@@ -76,7 +73,7 @@ class DisplayMeme extends Component {
     let nextElement = document.getElementsByClassName(
       `${this.state.userMemeSearch}`
     );
-
+    
     for (let n = 0; n < nextElement.length; n++) {
       nextElement[n].style.display = "flex";
     }
@@ -123,7 +120,7 @@ class DisplayMeme extends Component {
             {/* div containing the search feature */}
             <form className="flexbox searchGifForm" id="memeSearchBar" onSubmit={this.handleMemeSubmit}>
               <label htmlFor="memeSearch" className="srOnly">Search for Meme:</label>
-              <input type="text" id="memeSearch" name="userMemeSearch" placeholder="Search Memes" required onChange={this.handleMemeInputChange} />
+              <input type="text" id="memeSearch" name="userMemeSearch" placeholder="Find Memes" required onChange={this.handleMemeInputChange} />
               <button className="glow-on-hover searchGifButton">Search</button>
             </form>
 

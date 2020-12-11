@@ -115,7 +115,7 @@ class MemeCreator extends Component{
 
                         {/* post creation screen - gets displayed after user submits meme */}
                         <div className="postCreationMeme" id="postCreationMeme">
-                            <p className="creatingMemeText">⚙Creating Your Meme Now⚙</p>
+                            <p className="creatingMemeText">⚙ Creating Your Meme Now ⚙</p>
                             <Link to={"/search"}>                         
                                 <button className="glow-on-hover searchGifButton" type="button">
                                     View your Meme!
@@ -126,7 +126,7 @@ class MemeCreator extends Component{
                         <form action="" onSubmit={this.userGeneratedMemes}                      
                         className="createMemeForm" id="createMemeForm">
 
-                            <input className="srOnly" id="date" name="date" className="hiddenDate"></input>
+                            <input id="date" name="date" className="hiddenDate"></input>
 
                             <label htmlFor="topText">Top Text</label>
                             <input type="text" id="topText" className="userInput" required placeholder="Top Text" maxLength="30" ref={top => this.topText = top} onChange={this.handleInputChangeTopText}/>
