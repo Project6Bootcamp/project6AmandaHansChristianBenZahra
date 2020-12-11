@@ -154,6 +154,7 @@ class SearchGifs extends Component {
 
                         {/* div containing button to navigate to meme search page */}
                         <div className="viewMemesButtonContainer">
+
                             <Link to={"/search"}>
                                 <button className="glow-on-hover" type="button">View Created Memes</button>
                             </Link>

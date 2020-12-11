@@ -1,5 +1,6 @@
 import firebase from "../firebase.js";
 import { Component } from "react";
+import Header from "./Header";
 import UserMeme from "../components/UserMeme.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,6 +14,7 @@ class DisplayMeme extends Component {
     super();
     this.state = {
       ogMemeArray: [],
+      userMemeSearch: "",
     };
   }
 
@@ -34,8 +36,8 @@ class DisplayMeme extends Component {
           alt: firebaseDataObj[propertyKey].memeAltText,
           tags: firebaseDataObj[propertyKey].memeTags,
           date: firebaseDataObj[propertyKey].memeDate,
-          likes:firebaseDataObj[propertyKey].memeLikes,
-          dislikes:firebaseDataObj[propertyKey].memeDislikes,
+          likes: firebaseDataObj[propertyKey].memeLikes,
+          dislikes: firebaseDataObj[propertyKey].memeDislikes,
           totalVotes: firebaseDataObj[propertyKey].memeTotalVotes,
         };
 
@@ -50,8 +52,37 @@ class DisplayMeme extends Component {
       this.setState({
         ogMemeArray: memeArray,
       });
-    });  
+    });
   }
+
+  handleMemeInputChange = (e) => {
+    console.log(e.target.value);
+
+    this.setState({
+      userMemeSearch: e.target.value.toLowerCase(),
+    });
+  };
+
+  handleMemeSubmit = (e) => {
+    e.preventDefault();
+
+    let elements = document.getElementsByClassName("eachMemeStyleContainer");
+
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.display = "none";
+    }
+
+    let nextElement = document.getElementsByClassName(
+      `${this.state.userMemeSearch}`
+    );
+
+    for (let n = 0; n < nextElement.length; n++) {
+      nextElement[n].style.display = "flex";
+    }
+
+    document.getElementById("memeHeader").querySelector(".memeHeaderChange").innerHTML = `${this.state.userMemeSearch}`; 
+
+  };
 
   upVote = (propertyKey, likes, totalVotes) => {
     const dbRef = firebase.database().ref();
@@ -59,57 +90,62 @@ class DisplayMeme extends Component {
     dbRef.child(propertyKey).update({
       memeLikes: likes + 1,
       memeTotalVotes: totalVotes + 1,
-    })
-  }
+    });
+  };
 
   downVote = (propertyKey, dislikes, totalVotes) => {
-    const dbRef = firebase.database().ref();  
+    const dbRef = firebase.database().ref();
 
     dbRef.child(propertyKey).update({
       memeDislikes: dislikes + 1,
       memeTotalVotes: totalVotes - 1,
-    })
-  }
-  
+    });
+  };
 
   render() {
     return (
+      
       <div>
-        
-        <button
-          onClick={() => {
+        <Header headerText="Meme in a Giffy" subheaderText="" />
 
-            let elements = document.getElementsByClassName("eachMemeStyleContainer");
-
-            for (let i = 0; i < elements.length; i++) {
-              elements[i].style.display = "none";
-            }
-
-            let nextElement = document.getElementsByClassName("Hair");
-            for (let n = 0; n < nextElement.length; n++) {
-              nextElement[n].style.display = "flex";
-            }
-          }}
+        {/* Search Memes */}
+        <form
+          className="flexbox"
+          id="memeSearchBar"
+          onSubmit={this.handleMemeSubmit}
         >
-          Search
-        </button>
+          <label htmlFor="memeSearch" className="srOnly">
+            Search for Meme:
+          </label>
+          <input
+            type="text"
+            id="memeSearch"
+            name="userMemeSearch"
+            placeholder="Search Memes"
+            required
+            onChange={this.handleMemeInputChange}
+          />
+          <button>Search</button>
+        </form>
+
+        <h4 id="memeHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
 
         <ul className="eachMemeStyle">
           {this.state.ogMemeArray.map((eachMeme) => {
             return (
-                <UserMeme
-                  propertyKey={eachMeme.propertyKey}
-                  topText={eachMeme.topText}
-                  bottomText={eachMeme.bottomText}
-                  image={eachMeme.image}
-                  alt={eachMeme.alt}
-                  tags={eachMeme.tags}
-                  likes={eachMeme.likes}
-                  dislikes={eachMeme.dislikes}
-                  totalVotes={eachMeme.totalVotes}
-                  upVoteHandler={this.upVote}
-                  downVoteHandler={this.downVote}
-                />
+              <UserMeme
+                propertyKey={eachMeme.propertyKey}
+                topText={eachMeme.topText}
+                bottomText={eachMeme.bottomText}
+                image={eachMeme.image}
+                alt={eachMeme.alt}
+                tags={eachMeme.tags}
+                likes={eachMeme.likes}
+                dislikes={eachMeme.dislikes}
+                totalVotes={eachMeme.totalVotes}
+                upVoteHandler={this.upVote}
+                downVoteHandler={this.downVote}
+              />
             );
           })}
         </ul>
