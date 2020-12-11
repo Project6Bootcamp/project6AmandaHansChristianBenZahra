@@ -11,7 +11,7 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
   let memeTags = `${tags}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
   let memeAlt = `${alt}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
   let memetopText = `${topText}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
-  let memebottomText = `${bottomText}`.replace(/[^a-zA-Z]/g, " " ).toLowerCase();
+  let memebottomText = `${bottomText}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
 
   return (
     <li className={`eachMemeStyleContainer ${memeTags} ${memeAlt} ${memetopText} ${memebottomText} `}>
@@ -22,21 +22,23 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
         <p>{bottomText}</p>
         {/* <p>{tags}</p> */}
       </div>
-      
+
       <div clasName="voteBtns">
-        <button aria-label="upvote this meme" onClick={() => { upVoteHandler(propertyKey, likes, totalVotes)}} >
+
+        <button className="totalBtn">Total {totalVotes}</button>
+   
+        <button className="upVote" aria-label="upvote this meme" onClick={() => { upVoteHandler(propertyKey, likes, totalVotes) }} >
           <p>{likes}</p>
           <FontAwesomeIcon icon={faThumbsUp} />
         </button>
 
-        <button>Total {totalVotes}</button>
-
-        <button aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} > 
+        <button className="downVote" aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} >
           <p>{dislikes}</p>
           <FontAwesomeIcon icon={faThumbsDown} />
         </button>
+
       </div>
-      
+
     </li>
   );
 };
