@@ -23,20 +23,21 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
         {/* <p>{tags}</p> */}
       </div>
 
-      <div clasName="voteBtns">
+      <div className="voteButtons">
+        <div>
+          <button className="totalBtn">Total {totalVotes}</button>
+        </div>
+        <div className="buttonContainer">
+          <button className="upVote" aria-label="upvote this meme" onClick={() => { upVoteHandler(propertyKey, likes, totalVotes) }} >
+            <p className="buttonText">{likes}</p>
+            <FontAwesomeIcon icon={faThumbsUp} />
+          </button>
 
-        <button className="totalBtn">Total {totalVotes}</button>
-   
-        <button className="upVote" aria-label="upvote this meme" onClick={() => { upVoteHandler(propertyKey, likes, totalVotes) }} >
-          <p>{likes}</p>
-          <FontAwesomeIcon icon={faThumbsUp} />
-        </button>
-
-        <button className="downVote" aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} >
-          <p>{dislikes}</p>
-          <FontAwesomeIcon icon={faThumbsDown} />
-        </button>
-
+          <button className="downVote" aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} >
+            <p className="buttonText">{dislikes}</p>
+            <FontAwesomeIcon icon={faThumbsDown} />
+          </button>
+        </div>
       </div>
 
     </li>
