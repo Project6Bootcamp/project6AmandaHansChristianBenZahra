@@ -38,7 +38,8 @@ Meme Viewing Section:
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
+        
         <Route exact path="/" component={Home} />
         <Route path="/memecreator" component={SearchGifs} />
         <Route path="/search" component={DisplayMeme} />
