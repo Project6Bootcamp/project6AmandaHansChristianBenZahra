@@ -186,7 +186,7 @@ class SearchGifs extends Component {
                                     )
                                 } else {
                                     return (
-                                        <li tabIndex={gifNum} className="gifContainer normalPointer" key={eachGif.id} onClick={this.passUrl} onKeyPress={this.passUrl}>
+                                        <li tabIndex={gifNum} className="gifContainer normalPointer" key={eachGif.id} onClick={this.passUrl} onKeyPress={this.passUrl} title="Click to create meme">
                                             <img src={eachGif.images.downsized_large.url} alt={eachGif.title} />
                                         </li>
                                     )

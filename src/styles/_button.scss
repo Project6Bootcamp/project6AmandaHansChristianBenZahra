@@ -168,6 +168,11 @@
 
 /// button on the meme upvote and down vote//@extend
 
+.downVote,
+.upVote {
+  cursor: pointer;
+}
+
 .downVote:focus, 
 .downVote:hover {
   color: red;
