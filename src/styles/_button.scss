@@ -139,18 +139,49 @@
   border-radius: 10px;
 }
 
-.totalBtn {
-  width: 100%;
-}
+// .totalBtn {
+//   width: 100%;
+// }
 
+.voteButtons {
+  button{
+    width: 100%;
+    
+  }
+  .buttonContainer{
+    display: flex;
+  }
+  .buttonText{
+    color: black;
+    font-size: 18px;
+  }
+  .totalBtn{
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    background-color: white;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .fa-thumbs-down,
+  .fa-thumbs-up {
+    font-size: 2rem;
+  }
+  
+}
 /// button on the meme upvote and down vote//@extend
 
 .downVote:focus, 
 .downVote:hover {
   color: red;
+  background-color: white;
+  
   
 }
 .upVote:focus, 
 .upVote:hover {
   color: green;
+  background-color: white;
+
 }
