@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 class Home extends Component {
   render() {
     return (
-      <Fragment>
+
+      <div className="fillScreen">
+        <Header headerText="Meme in a Giffy" subheaderText="" />
+
 
         <div className="fixHeaderText">
           <Header headerText="Meme in a Giffy" subheaderText="" />
@@ -26,7 +29,8 @@ class Home extends Component {
           </Link>
 
         </main>
-      </Fragment>
+   
+      </div>
     );
   }
 }

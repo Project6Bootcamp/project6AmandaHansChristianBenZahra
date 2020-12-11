@@ -1,17 +1,18 @@
 footer {
-  padding: 25px 0;
+  margin-top: 80px;
+  padding: 20px 0;
   text-align: center;
   background-color: rgba(88, 155, 105, 0.5);
+  font-size: 1.8rem;
+  color: $white;
 
-  p {
-    font-size: 1.8rem;
-  }
-
-  a {
-    color: inherit;
-  }
-
+  a,
   a:visited {
     color: inherit;
+  }
+
+  a:hover,
+  a:focus {
+    border-bottom: 2px solid $primary;
   }
 }

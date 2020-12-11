@@ -85,6 +85,7 @@ h1::before {
   }
 }
 
+
 @keyframes underline {
   100% {
     width: 100%;
@@ -96,4 +97,8 @@ h1::before {
     transform: translateY(0px);
     opacity: 1;
   }
+}
+
+h4 {
+  text-transform: capitalize;
 }
