@@ -16,12 +16,14 @@ class MemeCreator extends Component{
         }
     }
 
+    // What gets added to the top of the image by the user
     handleInputChangeTopText = (e) => {
         this.setState({
             userTopText: e.target.value
         })
     }
 
+    // What gets added to the bottom of the image by the user
     handleInputChangeBottomText = (e) => {
         this.setState({
             userBottomText: e.target.value
@@ -37,6 +39,8 @@ class MemeCreator extends Component{
 
         const userTagsInput = this.tags.value;
         const userMemeTags = userTagsInput.split(/[\s,]+/);
+
+        // The data that gets pushed to the firebase database
         const userMeme = {
             memeImage:this.props.gifUrlProps,
             memeAltText:this.props.gifAltProps,
