@@ -35,29 +35,68 @@ label,
     width: 100%;
 }
 
-.gifAndForm{
-    background-color: rgba(226,226,226,1);
-    padding: 2.5rem 5rem;
-    border: 5px solid $secondary;
-    border-radius: 5px;
-    flex-wrap: wrap;
-}
-
-.selectedGif{
+.postCreationMeme {
+    a {
+        align-self:center
+    }
     flex-direction: column;
+    .glow-on-hover {
+        font-size:20px;
+    }
+}
+#createMemeSection {
+    display:none;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 }
 
-.selectedGif img{
-    margin-top: 4px;
+.createMemeSection { 
+    width: 100%;
+    height: 100%;
+    background-color:rgba(1,1,1,0.9);
+    position: fixed;
+    display: flex;
+    margin: 0;
+    z-index: 999;
+    .closeMemeButton {
+        background-color: rgba(1,1,1,0);
+        border: none;
+        font-size: 20px;
+    }
+    .selectedGif {
+        width: 400px;
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin-top: 4px;
+        }
+    }
+    .gifAndForm{
+        background-color: rgba(226,226,226,1);
+        padding: 2.5rem 5rem;
+        border: 5px solid $secondary;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        .createMemeForm {
+            margin-left: 3rem;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            input[type=text] {
+                width: 300px;
+                padding: 10px;
+                font-size: 20px;
+            }
+        }
+    }
 }
+
 
 .hiddenDate{
     display: none;
-}
-
-.createMemeForm{
-    margin-left: 3rem;
 }
 
 label{
@@ -66,7 +105,7 @@ label{
     margin-bottom: 0.3rem;
 }
 
-.createMemeForm .submit{
+.submit{
     padding: 0.8rem 0;
     background-color: $black;
 }
@@ -89,15 +128,7 @@ label{
     margin: 0 auto;
 }
 
-.closeMemeButton {
-    background-color: rgba(1,1,1,0);
-    border: none;
-}
 
 ::placeholder{
     font-size:1.5rem;
-}
-
-#postCreationMeme {
-    display: none;
 }

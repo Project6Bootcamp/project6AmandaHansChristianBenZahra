@@ -4,17 +4,31 @@
     justify-content: center;
 }
 
-input[type=text] {
-    width: 300px;
-    padding: 10px;
-    font-size: 20px;
-}
-
-button {
-    padding: 10px;
-    width: 100px;
-    font-size: 20px;
-    margin-left: 10px;
+.flexboxSearchGifs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+    .searchGifForm {
+        margin-left: 40px
+    }
+    .searchGifButton {
+        padding: 10px;
+        width: 100px;
+        margin-left: 10px;
+        font-size:20px;
+    }
+    input[type=text] {
+        width: 300px;
+        padding: 10px;
+        font-size: 20px;
+    }
+    .glow-on-hover {
+        font-size:20px;
+    }
+    .viewMemesButtonContainer {
+        margin-right: 40px
+    }
 }
 
 .gifs {
@@ -29,60 +43,16 @@ button {
         justify-content: center;
         flex-direction: column;
         padding: 18px;
-        background: white;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
     }
     img {
         display: block;
         max-width: 100%;
     }
-
 }
-
-.flexboxSearchGifs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-top: 20px;
-}
-
-.viewMemesButtonContainer {
-    margin-right: 40px
-}
-
-.searchGifForm {
-    margin-left: 40px
-}
-
-.createMemeForm {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-  
-}
-
-#createMemeSection {
-    display:none;
-    flex-direction:column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.createMemeSection { 
-    width: 100%;
-    height: 100%;
-    background-color:rgba(1,1,1,0.9);
-    position: fixed;
-    display: flex;
-    margin: 0;
-    z-index: 999
-}
-
-.selectedGif {
-    width: 400px;
-}
-
 
 
 .eachMemeStyle {
@@ -123,6 +93,12 @@ button {
 
 }
 
+.creatingMemeText {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 
 .voteBtns{
     display: flex;
@@ -142,24 +118,31 @@ button {
     font-size: 25px;
 }
 
-@media (max-width: 736px) {
-    .flexboxSearchGifs {
-        justify-content: center;
-        margin: 0;
-        .viewMemesButtonContainer, 
-        .searchGifForm {
-            margin: 0;
-        }
+@media (max-width: 856px) {
+    .createMemeSection {
+        width: 300px;
     }
+    
 }
 
-.gifContainer { 
-    border: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
+@media (max-width: 750px) {
+        .flexboxSearchGifs {
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+            .searchGifForm{
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                .searchGifButton {
+                    margin-top: 10px;
+                }
+            }
+            .viewMemesButtonContainer {
+                margin: 10px 0 0;
+            }
+    }
 }
 
 .gifContainer:before {
