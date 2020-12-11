@@ -8,10 +8,10 @@ library.add(faThumbsDown, faThumbsUp);
 
 const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, totalVotes, upVoteHandler, propertyKey, downVoteHandler }) => {
 
-  let memeTags = `${tags}`.replace(/[^a-zA-Z ]/g, " ");
-  let memeAlt = `${alt}`.replace(/[^a-zA-Z ]/g, " ");
-  let memetopText = `${topText}`.replace(/[^a-zA-Z ]/g, " ");
-  let memebottomText = `${bottomText}`.replace(/[^a-zA-Z ]/g, " ");
+  let memeTags = `${tags}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
+  let memeAlt = `${alt}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
+  let memetopText = `${topText}`.replace(/[^a-zA-Z]/g, " ").toLowerCase();
+  let memebottomText = `${bottomText}`.replace(/[^a-zA-Z]/g, " " ).toLowerCase();
 
   return (
     <li className={`eachMemeStyleContainer ${memeTags} ${memeAlt} ${memetopText} ${memebottomText} `}>
@@ -29,7 +29,7 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
           <FontAwesomeIcon icon={faThumbsUp} />
         </button>
 
-        <button>{totalVotes}</button>
+        <button>Total {totalVotes}</button>
 
         <button aria-label="downvote this meme" onClick={() => { downVoteHandler(propertyKey, dislikes, totalVotes) }} > 
           <p>{dislikes}</p>

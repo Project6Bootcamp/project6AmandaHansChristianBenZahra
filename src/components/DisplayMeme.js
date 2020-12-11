@@ -1,5 +1,6 @@
 import firebase from "../firebase.js";
 import { Component } from "react";
+import Header from "./Header";
 import UserMeme from "../components/UserMeme.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -58,7 +59,7 @@ class DisplayMeme extends Component {
     console.log(e.target.value);
 
     this.setState({
-      userMemeSearch: e.target.value,
+      userMemeSearch: e.target.value.toLowerCase(),
     });
   };
 
@@ -75,10 +76,12 @@ class DisplayMeme extends Component {
       `${this.state.userMemeSearch}`
     );
 
-    // console.log(nextElement);
     for (let n = 0; n < nextElement.length; n++) {
       nextElement[n].style.display = "flex";
     }
+
+    document.getElementById("memeHeader").querySelector(".memeHeaderChange").innerHTML = `${this.state.userMemeSearch}`; 
+
   };
 
   upVote = (propertyKey, likes, totalVotes) => {
@@ -101,8 +104,11 @@ class DisplayMeme extends Component {
 
   render() {
     return (
-      // Search Memes
+      
       <div>
+        <Header headerText="Meme in a Giffy" subheaderText="" />
+
+        {/* Search Memes */}
         <form
           className="flexbox"
           id="memeSearchBar"
@@ -121,6 +127,8 @@ class DisplayMeme extends Component {
           />
           <button>Search</button>
         </form>
+
+        <h4 id="memeHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
 
         <ul className="eachMemeStyle">
           {this.state.ogMemeArray.map((eachMeme) => {
