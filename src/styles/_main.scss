@@ -1,7 +1,14 @@
 body {
     font-family: $body;
+    overflow-x: hidden;
 }
 
 .fillScreen {
     min-height: 100vh;
+}
+
+.landingPageHome{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

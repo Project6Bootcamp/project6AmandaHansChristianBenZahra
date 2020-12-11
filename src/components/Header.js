@@ -12,7 +12,13 @@ class Header extends Component {
   render() {
     return (
       <header id='header'>
-        <h1>{this.props.headerText}</h1>
+
+        <div class='container projects'><h1>{this.props.headerText}</h1>
+
+          <div class="overlay"></div>
+        </div>
+
+
         <h2>{this.props.subheaderText}</h2>
       </header>
     );
