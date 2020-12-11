@@ -81,7 +81,7 @@ class DisplayMeme extends Component {
       nextElement[n].style.display = "flex";
     }
 
-    document.getElementById("memeHeader").querySelector(".memeHeaderChange").innerHTML = `${this.state.userMemeSearch}`; 
+    document.getElementById("memeHeader").querySelector(".memeHeaderChange").innerHTML = `${this.state.userMemeSearch}`;
 
     this.setState({
       userMemeSearch: "",
@@ -111,53 +111,53 @@ class DisplayMeme extends Component {
 
   render() {
     return (
-      
+
       <div className="fillScreen">
 
         <Header headerText="Meme in a Giffy" subheaderText="" />
 
         <section className="wrapper">
 
-        {/* Search Memes */}
-        <div className="flexboxSearchGifs">
-          {/* div containing the search feature */}
+          {/* Search Memes */}
+          <div className="flexboxSearchGifs">
+            {/* div containing the search feature */}
             <form className="flexbox searchGifForm" id="memeSearchBar" onSubmit={this.handleMemeSubmit}>
-            <label htmlFor="memeSearch" className="srOnly">Search for Meme:</label>
-            <input type="text" id="memeSearch" name="userMemeSearch" placeholder="Search Memes" required onChange={this.handleMemeInputChange} />
-            <button className="glow-on-hover searchGifButton">Search</button>
-          </form>
+              <label htmlFor="memeSearch" className="srOnly">Search for Meme:</label>
+              <input type="text" id="memeSearch" name="userMemeSearch" placeholder="Search Memes" required onChange={this.handleMemeInputChange} />
+              <button className="glow-on-hover searchGifButton">Search</button>
+            </form>
 
-          {/* div containing button to navigate to meme search page */}
-          <div className="viewMemesButtonContainer">
+            {/* div containing button to navigate to meme search page */}
+            <div className="viewMemesButtonContainer">
 
-            <Link to={"/memecreator"}>
-              <button className="glow-on-hover" type="button">Create New Meme</button>
-            </Link>
+              <Link to={"/memecreator"}>
+                <button className="glow-on-hover" type="button">Create New Meme</button>
+              </Link>
+            </div>
+
           </div>
 
-        </div>
+          <h2 id="memeHeader" className="gifHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h2>
 
-        <h4 id="memeHeader" className="gifHeader"><span className="memeHeaderChange">Most Recent</span> Memes</h4>
-
-        <ul className="eachMemeStyle flexbox">
-          {this.state.ogMemeArray.map((eachMeme) => {
-            return (
-              <UserMeme
-                propertyKey={eachMeme.propertyKey}
-                topText={eachMeme.topText}
-                bottomText={eachMeme.bottomText}
-                image={eachMeme.image}
-                alt={eachMeme.alt}
-                tags={eachMeme.tags}
-                likes={eachMeme.likes}
-                dislikes={eachMeme.dislikes}
-                totalVotes={eachMeme.totalVotes}
-                upVoteHandler={this.upVote}
-                downVoteHandler={this.downVote}
-              />
-            );
-          })}
-        </ul>
+          <ul className="eachMemeStyle flexbox">
+            {this.state.ogMemeArray.map((eachMeme) => {
+              return (
+                <UserMeme
+                  propertyKey={eachMeme.propertyKey}
+                  topText={eachMeme.topText}
+                  bottomText={eachMeme.bottomText}
+                  image={eachMeme.image}
+                  alt={eachMeme.alt}
+                  tags={eachMeme.tags}
+                  likes={eachMeme.likes}
+                  dislikes={eachMeme.dislikes}
+                  totalVotes={eachMeme.totalVotes}
+                  upVoteHandler={this.upVote}
+                  downVoteHandler={this.downVote}
+                />
+              );
+            })}
+          </ul>
         </section>
       </div>
     );

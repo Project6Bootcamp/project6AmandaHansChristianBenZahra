@@ -11,6 +11,11 @@ header {
 //   --complimentary-color: rgba(218, 215, 7, 1);
 // }
 
+// :root {
+//   --primary-color: blue;
+//   --secondary-color:rgba(218, 215, 7, 1);
+//   --complimentary-color: rgb(40, 40, 40);
+// }
 :root {
   --primary-color: rgba(88, 155, 105, 1);
   --secondary-color: rgba(218, 215, 7, 1);
@@ -98,8 +103,4 @@ h1::before {
     transform: translateY(0px);
     opacity: 1;
   }
-}
-
-h4 {
-  text-transform: capitalize;
 }

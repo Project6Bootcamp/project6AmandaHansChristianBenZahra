@@ -36,6 +36,7 @@
     margin: 20px 0 0 40px;
     color: white;
     font-size: 20px;
+    text-transform: capitalize;
 }
 
 .gifs {
@@ -128,22 +129,26 @@
 }
 
 @media (max-width: 750px) {
-        .flexboxSearchGifs {
+    .gifHeader {
+        text-align: center;
+        margin: 20px 0px 0px;
+    }
+    .flexboxSearchGifs {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        text-align: center;
+        .searchGifForm{
             flex-direction: column;
             align-items: center;
             margin: 0;
-            text-align: center;
-            .searchGifForm{
-                flex-direction: column;
-                align-items: center;
-                margin: 0;
-                .searchGifButton {
-                    margin-top: 10px;
-                }
+            .searchGifButton {
+                margin-top: 10px;
             }
-            .viewMemesButtonContainer {
-                margin: 10px 0 0;
-            }
+        }
+        .viewMemesButtonContainer {
+            margin: 10px 0 0;
+        }
     }
 }
 

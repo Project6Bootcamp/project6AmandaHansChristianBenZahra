@@ -18,7 +18,7 @@ class SearchGifs extends Component {
             displayedGifs: [],
             gifUrl: [],
             gifAlt: [],
-        }   
+        }
     }
 
     // On mount, run axios (api call) function to display all the currently trending Gifs
@@ -39,7 +39,7 @@ class SearchGifs extends Component {
         this.giphyAPICall(this.state.userInput);
 
         // functionality to make search disappear after search submit
-        document.getElementById("gifHeader").querySelector(".gifHeaderChange").innerHTML = `${this.state.userInput}`; 
+        document.getElementById("gifHeader").querySelector(".gifHeaderChange").innerHTML = `${this.state.userInput}`;
         this.setState({
             userInput: "",
         });
@@ -74,7 +74,7 @@ class SearchGifs extends Component {
                     displayedGifs: errorMsgGifObj
                 })
 
-            // else statement catching results from api call and storing result in the displayed Gifs state
+                // else statement catching results from api call and storing result in the displayed Gifs state
             } else {
                 console.log(apiResponse.data.data);
                 this.setState({
@@ -111,9 +111,9 @@ class SearchGifs extends Component {
     passUrl = (e) => {
 
         // conditional statement to get the src of the gif regardless of if the user is clicking on the li containing the image or the image itself
-        if (e.target.firstChild != null){
+        if (e.target.firstChild != null) {
             console.log(e.target)
-            this.setState({          
+            this.setState({
                 gifUrl: e.target.firstChild.src,
                 gifAlt: e.target.firstChild.alt
             })
@@ -123,12 +123,12 @@ class SearchGifs extends Component {
                 gifAlt: e.target.alt
             })
         }
-        
+
         // displaying divs containing create meme page
         document.getElementById("createMemeSection").style.display = "flex";
         document.getElementById("selectedGif").style.display = "flex";
-        document.getElementById("createMemeForm").style.display =  "flex";
-        
+        document.getElementById("createMemeForm").style.display = "flex";
+
         // hiding search and navigation bar when create meme page pops up
         document.getElementById("searchGifId").style.display = "none";
         document.getElementById("header").style.display = "none";
@@ -146,10 +146,10 @@ class SearchGifs extends Component {
                 {/* Calling the component MemeCreator to allow user to create their own Meme
                 - passes component the url and the alt text of the gif  
                     **this is not visible until a user actually clicks a gif */}
-                <MemeCreator gifUrlProps={this.state.gifUrl} gifAltProps={this.state.gifAlt}/>
+                <MemeCreator gifUrlProps={this.state.gifUrl} gifAltProps={this.state.gifAlt} />
 
                 <section className="wrapper">
-                 
+
                     {/* Div containing the search/navigation bar above displayed gifs */}
                     <div className="flexboxSearchGifs" id="searchGifId">
                         {/* div containing the search feature */}
@@ -167,13 +167,13 @@ class SearchGifs extends Component {
                             </Link>
                         </div>
                     </div>
-                    
-                    {/* H4 updating everytime new search has been performed */}
-                    <h4 id="gifHeader" className="gifHeader"><span className="gifHeaderChange">Trending</span> Gifs</h4>
+
+                    {/* H2 updating everytime new search has been performed */}
+                    <h2 id="gifHeader" className="gifHeader"><span className="gifHeaderChange">Trending</span> Gifs</h2>
 
                     {/* Ul containing all gifs */}
                     <ul className="gifs flexbox" id="displayedGifsId">
-                        
+
                         {
                             // mapping over the state containing which is set from axios (api call)
                             this.state.displayedGifs.map((eachGif, gifNum) => {
@@ -183,13 +183,13 @@ class SearchGifs extends Component {
                                     return (
                                         <li tabIndex={gifNum} className="gifContainer noPointer" key={eachGif.id}>
                                             <p className="noGifFoundText">Sorry No GIFs found, search again!</p>
-                                            <img src={eachGif.images.downsized_large.url} alt={eachGif.title}/>
+                                            <img src={eachGif.images.downsized_large.url} alt={eachGif.title} />
                                         </li>
                                     )
                                 } else {
                                     return (
                                         <li tabIndex={gifNum} className="gifContainer normalPointer" key={eachGif.id} onClick={this.passUrl} onKeyPress={this.passUrl}>
-                                            <img src={eachGif.images.downsized_large.url} alt={eachGif.title}  />
+                                            <img src={eachGif.images.downsized_large.url} alt={eachGif.title} />
                                         </li>
                                     )
                                 }
@@ -200,7 +200,7 @@ class SearchGifs extends Component {
                     </ul>
 
                 </section>
-                
+
             </Fragment>
         )
     }
