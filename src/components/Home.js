@@ -7,14 +7,12 @@ class Home extends Component {
     return (
 
       <div className="fillScreen">
-        <Header headerText="Meme in a Giffy" subheaderText="" />
-
 
         <div className="fixHeaderText">
           <Header headerText="Meme in a Giffy" subheaderText="" />
         </div>
 
-        <main >
+        <main className="landingPageHome">
 
           <Link to={"/search"}>
             <button className="glow-on-hover homeButton" type="button">
@@ -29,7 +27,7 @@ class Home extends Component {
           </Link>
 
         </main>
-   
+
       </div>
     );
   }
