@@ -20,7 +20,6 @@ const UserMeme = ({ topText, bottomText, tags, image, alt, likes, dislikes, tota
         <p>{topText}</p>
         <img src={image} alt={memeAlt} />
         <p>{bottomText}</p>
-        {/* <p>{tags}</p> */}
       </div>
 
 
